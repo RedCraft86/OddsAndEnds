@@ -1,5 +1,8 @@
 package com.redcraft86.oddsandends.events;
 
+import org.slf4j.Logger;
+import com.mojang.logging.LogUtils;
+
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.configs.CommonCfg;
 
@@ -13,6 +16,8 @@ import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
 public class ServerEvents {
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     @SubscribeEvent
     static void onMobGrief(EntityMobGriefingEvent e) {
         Entity entity = e.getEntity();
