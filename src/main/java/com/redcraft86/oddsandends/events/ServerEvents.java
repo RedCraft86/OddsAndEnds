@@ -15,6 +15,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
@@ -38,6 +40,30 @@ public class ServerEvents {
         }
 
         ImprovedBoneMeal.generateFlowerList((Level)level);
+    }
+
+    @SubscribeEvent
+    static void onEntityInteract(PlayerInteractEvent.EntityInteract e) {
+        Level level = e.getLevel();
+        if (level.isClientSide()) {
+            return;
+        }
+
+        Player player = e.getEntity();
+        Entity target = e.getTarget();
+        ItemStack item = e.getItemStack();
+
+        if (e.getHand() == InteractionHand.MAIN_HAND) {
+            if (CommonCfg.INFINITE_VILLAGERS.get()) {
+                if (target instanceof AbstractVillager villager) {
+                    for (MerchantOffer offer : villager.getOffers()) {
+                        offer.maxUses = Integer.MAX_VALUE;
+                        offer.resetUses();
+                    }
+                }
+            }
+        } // else {
+        // }
     }
 
     @SubscribeEvent

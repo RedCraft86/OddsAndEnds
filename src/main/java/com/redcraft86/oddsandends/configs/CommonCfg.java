@@ -9,6 +9,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class CommonCfg {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    public static final ModConfigSpec.BooleanValue INFINITE_VILLAGERS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
 
     public static final ModConfigSpec.BooleanValue DIRT_TO_GRASS;
@@ -25,6 +26,10 @@ public class CommonCfg {
 
     static {
         BUILDER.push("entities");
+
+
+        INFINITE_VILLAGERS = BUILDER.comment("Makes villager trades never run out of stock.")
+                .define("infiniteVillagers", true);
 
         GRIEF_BLACKLIST = BUILDER.comment("A list of entities blacklisted from griefing the world.")
                 .defineListAllowEmpty("griefingBlacklist",
