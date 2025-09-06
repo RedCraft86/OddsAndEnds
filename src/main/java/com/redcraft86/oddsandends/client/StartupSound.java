@@ -42,7 +42,12 @@ public class StartupSound {
             }
 
             ResourceLocation resource = ResourceLocation.tryParse(values[0]);
-            float volume = Float.parseFloat(values[1]);
+            float volume;
+            try {
+                volume = Float.parseFloat(values[1]);
+            } catch (NumberFormatException e) {
+                volume = 0.0f;
+            }
             if (resource == null || volume <= 0.05f) {
                 LOGGER.warn("[Startup Sound] Invalid startup sound entry: {}", entry);
                 return;
@@ -53,7 +58,7 @@ public class StartupSound {
                 Minecraft.getInstance().getSoundManager().playDelayed(
                         SimpleSoundInstance.forUI(soundEvent, 1, volume), 50);
             } else {
-                LOGGER.warn("[Startup Sound] Failed to play startup sound: {} does not exist!", resource);
+                LOGGER.warn("[Startup Sound] Sound Event: {} does not exist!", resource);
             }
         }
     }
