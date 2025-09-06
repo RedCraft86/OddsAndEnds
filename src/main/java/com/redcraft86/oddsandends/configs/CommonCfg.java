@@ -13,6 +13,7 @@ public class CommonCfg {
 
     public static final ModConfigSpec.IntValue SEARCH_RADIUS;
     public static final ModConfigSpec.ConfigValue<String> STRUCTURE_SPAWNPOINT;
+    public static final ModConfigSpec.BooleanValue RANDOM_TAGGED_STRUCTURE;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> STRUCTURE_BLACKLIST;
 
     static {
@@ -33,7 +34,10 @@ public class CommonCfg {
                 .comment("Either an ID or a tag (prefixed by #). Leave empty to disable.")
                 .define("structure", "#minecraft:village", CommonCfg::validateResourceOrTag);
 
-        STRUCTURE_BLACKLIST = BUILDER.comment("A list of specific structures to ignore if using a tag.")
+        RANDOM_TAGGED_STRUCTURE = BUILDER.comment("If using a tag, whether the a structure should be randomly picked instead of going in order.")
+                .define("randomize", true);
+
+        STRUCTURE_BLACKLIST = BUILDER.comment("If using a tag, a list of structures to ignore.")
                 .defineListAllowEmpty("blacklist", List.of("minecraft:village_snowy"),
                         () -> "", CommonCfg::validateResource);
 
