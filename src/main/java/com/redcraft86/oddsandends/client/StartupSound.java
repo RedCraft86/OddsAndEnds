@@ -24,10 +24,10 @@ public class StartupSound {
         if (!hasPlayed && screen instanceof TitleScreen) {
             hasPlayed = true;
 
-            if (!ClientCfg.isLoaded()) {
-                LOGGER.warn("[Odds And Ends] Failed to play startup sound: Client Config has not been loaded!");
-                return;
-            }
+//            if (!ClientCfg.isLoaded()) {
+//                LOGGER.warn("[Odds And Ends] Failed to play startup sound: Client Config has not been loaded!");
+//                return;
+//            }
 
             List<? extends String> entries = ClientCfg.STARTUP_SOUNDS.get();
             if (entries.isEmpty()) {
