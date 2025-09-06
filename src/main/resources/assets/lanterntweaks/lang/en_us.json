@@ -8,6 +8,12 @@
   "oddsandends.configuration.entities": "Entities",
   "oddsandends.configuration.griefingBlacklist": "Griefing Blacklist",
 
+  "oddsandends.configuration.structureSpawnPoint": "Structure Spawn Point",
+  "oddsandends.configuration.radius": "Search Radius",
+  "oddsandends.configuration.structure": "Structure",
+  "oddsandends.configuration.blacklist": "Blacklist",
+
   "oddsandends.worldload.loading": "Loading %s",
-  "oddsandends.worldload.generating": "Generating %s"
+  "oddsandends.worldload.generating": "Generating %s",
+  "oddsandends.worldload.locate": "Locating nearby %s, please wait"
 }

@@ -11,12 +11,30 @@ public class CommonCfg {
 
     public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
 
+    public static final ModConfigSpec.IntValue SEARCH_RADIUS;
+    public static final ModConfigSpec.ConfigValue<String> STRUCTURE_SPAWNPOINT;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> STRUCTURE_BLACKLIST;
+
     static {
         BUILDER.push("entities");
 
         GRIEF_BLACKLIST = BUILDER.comment("A list of entities blacklisted from griefing the world.")
                 .defineListAllowEmpty("griefingBlacklist",
                         List.of("minecraft:enderman", "minecraft:fireball", "minecraft:wither_skull"),
+                        () -> "", CommonCfg::validateResource);
+
+        BUILDER.pop();
+        BUILDER.push("structureSpawnPoint");
+
+        SEARCH_RADIUS = BUILDER.comment("The radius (in chunks) around 0, 0 that should be searched for the structure.")
+                .defineInRange("radius", 128, 32, 512);
+
+        STRUCTURE_SPAWNPOINT = BUILDER.comment("Set the world spawn point near a specified structure.")
+                .comment("Either an ID or a tag (prefixed by #). Leave empty to disable.")
+                .define("structure", "#minecraft:village", CommonCfg::validateResourceOrTag);
+
+        STRUCTURE_BLACKLIST = BUILDER.comment("A list of specific structures to ignore if using a tag.")
+                .defineListAllowEmpty("blacklist", List.of("minecraft:village_snowy"),
                         () -> "", CommonCfg::validateResource);
 
         BUILDER.pop();
@@ -33,8 +51,24 @@ public class CommonCfg {
                 return false;
             }
 
+            if (id[0].isBlank() || id[1].isBlank()) {
+                return false;
+            }
+
             return ResourceLocation.isValidNamespace(id[0])
                     && ResourceLocation.isValidPath(id[1]);
+        }
+
+        return false;
+    }
+
+    private static boolean validateResourceOrTag(final Object obj) {
+        if (obj instanceof String string) {
+            if (string.startsWith("#")) {
+                return validateResource(string.substring(1));
+            } else {
+                return validateResource(obj);
+            }
         }
 
         return false;
