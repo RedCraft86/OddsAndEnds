@@ -3,9 +3,10 @@ package com.redcraft86.oddsandends.events;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
-import com.redcraft86.oddsandends.OddsAndEnds;
+import com.redcraft86.lanternlib.TransientFlags;
+import com.redcraft86.oddsandends.FlagKeys;
 import com.redcraft86.oddsandends.configs.CommonCfg;
-import com.redcraft86.oddsandends.common.*;
+import com.redcraft86.oddsandends.OddsAndEnds;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -22,7 +23,7 @@ public class ServerEvents {
 
     @SubscribeEvent
     static void onWorldCreate(LevelEvent.CreateSpawnPosition e) {
-        StructureSpawnPoint.genWorld = true;
+        TransientFlags.addFlag(FlagKeys.GENERATING_WORLD);
     }
 
     @SubscribeEvent
