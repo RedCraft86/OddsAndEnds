@@ -1,9 +1,9 @@
 {
-  "lanterntweaks.configuration.exampleBool": "Example Bool",
-  "lanterntweaks.configuration.exampleInt": "Example Integer",
-  "lanterntweaks.configuration.exampleString": "Example Str",
-  "lanterntweaks.configuration.exampleList": "Example Str List",
+  "oddsandends.configuration.exampleBool": "Example Bool",
+  "oddsandends.configuration.exampleInt": "Example Integer",
+  "oddsandends.configuration.exampleString": "Example Str",
+  "oddsandends.configuration.exampleList": "Example Str List",
 
-  "lanterntweaks.configuration.CommonCategoryTest": "Common Category",
-  "lanterntweaks.configuration.ClientCategoryTest": "Client Category"
+  "oddsandends.configuration.CommonCategoryTest": "Common Category",
+  "oddsandends.configuration.ClientCategoryTest": "Client Category"
 }

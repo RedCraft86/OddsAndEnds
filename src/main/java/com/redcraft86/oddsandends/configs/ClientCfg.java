@@ -1,4 +1,4 @@
-package com.redcraft86.lanterntweaks.configs;
+package com.redcraft86.oddsandends.configs;
 
 import java.util.List;
 
