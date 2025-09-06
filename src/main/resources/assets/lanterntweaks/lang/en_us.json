@@ -1,9 +1,7 @@
 {
-  "oddsandends.configuration.exampleBool": "Example Bool",
-  "oddsandends.configuration.exampleInt": "Example Integer",
-  "oddsandends.configuration.exampleString": "Example Str",
-  "oddsandends.configuration.exampleList": "Example Str List",
+  "oddsandends.configuration.startupSounds": "Startup Sounds",
 
-  "oddsandends.configuration.CommonCategoryTest": "Common Category",
-  "oddsandends.configuration.ClientCategoryTest": "Client Category"
+  "oddsandends.configuration.TitleBar": "Title Bar",
+  "oddsandends.configuration.memoryTitle": "Memory Usage",
+  "oddsandends.configuration.customTitle": "Custom Text"
 }

@@ -26,7 +26,7 @@ public class ClientCfg {
         MEMORY_USAGE_TITLE = BUILDER.comment("Show memory usage, total, and allocation in title bar.")
                 .define("memoryTitle", true);
 
-        CUSTOM_TITLE = BUILDER.comment("Show a custom string in the title bar instead of \"Minecraft NeoForge*...\"")
+        CUSTOM_TITLE = BUILDER.comment("Show a custom string in the title bar in place of the default text.")
                 .define("customTitle", "DEFAULT");
 
         BUILDER.pop();
