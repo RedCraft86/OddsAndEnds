@@ -26,7 +26,7 @@ public class ServerEvents {
     @SubscribeEvent(receiveCanceled = true)
     static void onWorldCreate(LevelEvent.CreateSpawnPosition e) {
         LevelAccessor levelAccessor = e.getLevel();
-        if (!levelAccessor.isClientSide()) {
+        if (levelAccessor.isClientSide()) {
             return;
         }
 
