@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.redcraft86.lanterntweaks.mixin",
+  "package": "com.redcraft86.oddsandends.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
   "injectors": {
@@ -8,5 +8,8 @@
   },
   "overwrites": {
     "requireAnnotations": true
-  }
+  },
+  "client": [
+    "MinecraftMixin"
+  ]
 }
