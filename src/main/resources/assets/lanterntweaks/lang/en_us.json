@@ -1,13 +1,9 @@
 {
-  "itemGroup.lanterntweaks": "Example Mod Tab",
-  "block.lanterntweaks.example_block": "Example Block",
-  "item.lanterntweaks.example_item": "Example Item",
+  "lanterntweaks.configuration.exampleBool": "Example Bool",
+  "lanterntweaks.configuration.exampleInt": "Example Integer",
+  "lanterntweaks.configuration.exampleString": "Example Str",
+  "lanterntweaks.configuration.exampleList": "Example Str List",
 
-  "lanterntweaks.configuration.title": "Lantern Tweaks Configs",
-  "lanterntweaks.configuration.section.lanterntweaks.common.toml": "Lantern Tweaks Configs",
-  "lanterntweaks.configuration.section.lanterntweaks.common.toml.title": "Lantern Tweaks Configs",
-  "lanterntweaks.configuration.items": "Item List",
-  "lanterntweaks.configuration.logDirtBlock": "Log Dirt Block",
-  "lanterntweaks.configuration.magicNumberIntroduction": "Magic Number Text",
-  "lanterntweaks.configuration.magicNumber": "Magic Number"
+  "lanterntweaks.configuration.CommonCategoryTest": "Common Category",
+  "lanterntweaks.configuration.ClientCategoryTest": "Client Category"
 }

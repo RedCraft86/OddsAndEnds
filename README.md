@@ -1,4 +1,4 @@
-NeoForge port of the popular Fabric mod "Better Nether"
+An assortment of random tweaks and features added to Minecraft.
 
 ### **Modpack Usage**
 You may include this mod into your own modpacks as long as it is
