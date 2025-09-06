@@ -1,7 +1,7 @@
 {
   "oddsandends.configuration.startupSounds": "Startup Sounds",
 
-  "oddsandends.configuration.TitleBar": "Title Bar",
+  "oddsandends.configuration.titleBar": "Title Bar",
   "oddsandends.configuration.memoryTitle": "Memory Usage",
   "oddsandends.configuration.customTitle": "Custom Text"
 }

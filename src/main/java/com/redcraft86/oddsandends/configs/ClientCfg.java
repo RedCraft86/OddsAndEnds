@@ -21,7 +21,7 @@ public class ClientCfg {
                         List.of("minecraft:entity.experience_orb.pickup 0.7", "minecraft:entity.player.levelup 0.3"),
                                 () -> "", StartupSound::validateEntry);
 
-        BUILDER.push("TitleBar");
+        BUILDER.push("titleBar");
 
         MEMORY_USAGE_TITLE = BUILDER.comment("Show memory usage, total, and allocation in title bar.")
                 .define("memoryTitle", true);
