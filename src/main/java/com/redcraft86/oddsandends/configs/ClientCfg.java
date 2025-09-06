@@ -2,7 +2,7 @@ package com.redcraft86.oddsandends.configs;
 
 import java.util.List;
 
-import com.redcraft86.oddsandends.client.StartupSound;
+import com.redcraft86.oddsandends.client.*;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
