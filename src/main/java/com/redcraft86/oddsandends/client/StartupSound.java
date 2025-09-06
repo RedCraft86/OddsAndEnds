@@ -25,7 +25,7 @@ public class StartupSound {
             hasPlayed = true;
 
 //            if (!ClientCfg.isLoaded()) {
-//                LOGGER.warn("[Odds And Ends] Failed to play startup sound: Client Config has not been loaded!");
+//                LOGGER.warn("[Startup Sound] Failed to play startup sound: Client Config has not been loaded!");
 //                return;
 //            }
 
@@ -37,14 +37,14 @@ public class StartupSound {
             String entry = entries.get(RANDOM.nextInt(entries.size()));
             String[] values = entry.split(" ", 2);
             if (values.length != 2) {
-                LOGGER.warn("[Odds And Ends] Failed to parse startup sound: {}", entry);
+                LOGGER.warn("[Startup Sound] Failed to parse startup sound: {}", entry);
                 return;
             }
 
             ResourceLocation resource = ResourceLocation.tryParse(values[0]);
             float volume = Float.parseFloat(values[1]);
             if (resource == null || volume <= 0.05f) {
-                LOGGER.warn("[Odds And Ends] Invalid startup sound entry: {}", entry);
+                LOGGER.warn("[Startup Sound] Invalid startup sound entry: {}", entry);
                 return;
             }
 
@@ -53,7 +53,7 @@ public class StartupSound {
                 Minecraft.getInstance().getSoundManager().playDelayed(
                         SimpleSoundInstance.forUI(soundEvent, 1, volume), 50);
             } else {
-                LOGGER.warn("[Odds And Ends] Failed to play startup sound: {} does not exist!", resource);
+                LOGGER.warn("[Startup Sound] Failed to play startup sound: {} does not exist!", resource);
             }
         }
     }
