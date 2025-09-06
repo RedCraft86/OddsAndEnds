@@ -13,6 +13,7 @@ version = mod_version
 group = mod_group_id
 
 repositories {
+    mavenLocal() // this looks at ~/.m2/repository
     maven { url = 'https://maven.minecraftforge.net/' }
 }
 
@@ -72,6 +73,7 @@ configurations {
 }
 
 dependencies {
+    implementation "com.redcraft86.lanternlib:LanternLib:${lanternlib_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
@@ -80,6 +82,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version_range     : minecraft_version_range,
             neo_version                 : neo_version,
             loader_version_range        : loader_version_range,
+            lanternlib_version          : lanternlib_version,
             lanternlib_version_range    : lanternlib_version_range,
             mod_id                      : mod_id,
             mod_name                    : mod_name,
