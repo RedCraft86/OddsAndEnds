@@ -16,7 +16,7 @@ public class ClientCfg {
 
     static {
         STARTUP_SOUNDS = BUILDER.comment("A random sound from this list will be played when first entering the title screen.")
-                .comment("Leave empty to disable. Format: \"namespace:id volume\"")
+                .comment("Leave empty to disable. Format: \"sound_id volume\"")
                 .defineListAllowEmpty("startupSounds",
                         List.of("minecraft:entity.experience_orb.pickup 0.7", "minecraft:entity.player.levelup 0.3"),
                                 () -> "", StartupSound::validateEntry);

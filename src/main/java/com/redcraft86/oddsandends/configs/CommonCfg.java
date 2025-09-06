@@ -68,7 +68,7 @@ public class CommonCfg {
                 .comment("Either an ID or a tag (prefixed by #). Leave empty to disable.")
                 .define("structure", "#minecraft:village", CommonCfg::validateResourceOrTag);
 
-        RANDOM_TAGGED_STRUCTURE = BUILDER.comment("If using a tag, whether the a structure should be randomly picked instead of going in order.")
+        RANDOM_TAGGED_STRUCTURE = BUILDER.comment("If using a tag, whether the structure should be randomly picked instead of going in order.")
                 .define("randomize", true);
 
         STRUCTURE_BLACKLIST = BUILDER.comment("If using a tag, a list of structures to ignore.")
