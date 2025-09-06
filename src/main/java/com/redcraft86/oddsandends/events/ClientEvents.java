@@ -3,6 +3,7 @@ package com.redcraft86.oddsandends.events;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
+import com.redcraft86.oddsandends.common.StructureSpawnPoint;
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.client.*;
 
@@ -17,6 +18,7 @@ public class ClientEvents {
 
     @SubscribeEvent
     static void onScreenOpen(ScreenEvent.Opening e) {
+        StructureSpawnPoint.genWorld = false;
         StartupSound.handle(e.getNewScreen());
     }
 }

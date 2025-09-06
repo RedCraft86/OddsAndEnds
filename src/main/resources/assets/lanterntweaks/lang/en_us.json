@@ -6,5 +6,8 @@
   "oddsandends.configuration.customTitle": "Custom Text",
 
   "oddsandends.configuration.entities": "Entities",
-  "oddsandends.configuration.griefingBlacklist": "Griefing Blacklist"
+  "oddsandends.configuration.griefingBlacklist": "Griefing Blacklist",
+
+  "oddsandends.worldload.loading": "Loading %s",
+  "oddsandends.worldload.generating": "Generating %s"
 }
