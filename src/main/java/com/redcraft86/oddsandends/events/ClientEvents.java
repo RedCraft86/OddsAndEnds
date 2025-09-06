@@ -16,7 +16,7 @@ public class ClientEvents {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     @SubscribeEvent
-    static void onScreenOpen(ScreenEvent.Opening event) {
-        StartupSound.handle(event.getNewScreen());
+    static void onScreenOpen(ScreenEvent.Opening e) {
+        StartupSound.handle(e.getNewScreen());
     }
 }
