@@ -1,0 +1,13 @@
+{
+  "itemGroup.lanterntweaks": "Example Mod Tab",
+  "block.lanterntweaks.example_block": "Example Block",
+  "item.lanterntweaks.example_item": "Example Item",
+
+  "lanterntweaks.configuration.title": "Lantern Tweaks Configs",
+  "lanterntweaks.configuration.section.lanterntweaks.common.toml": "Lantern Tweaks Configs",
+  "lanterntweaks.configuration.section.lanterntweaks.common.toml.title": "Lantern Tweaks Configs",
+  "lanterntweaks.configuration.items": "Item List",
+  "lanterntweaks.configuration.logDirtBlock": "Log Dirt Block",
+  "lanterntweaks.configuration.magicNumberIntroduction": "Magic Number Text",
+  "lanterntweaks.configuration.magicNumber": "Magic Number"
+}

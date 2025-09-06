@@ -1,0 +1,12 @@
+NeoForge port of the popular Fabric mod "Better Nether"
+
+### **Modpack Usage**
+You may include this mod into your own modpacks as long as it is
+1) Shared privately amongst friends, **or**
+2) It is distributed through CurseForge, Modrinth, or any other recognized mainstream modding platforms that may exist in the future.
+
+### **Dependence**
+Mod developers are free to depend on this mod in their own projects, regardless of license.
+
+### **Forks & Modifications**
+You may freely fork, modify, and distribute this project under the terms of the MIT license.
