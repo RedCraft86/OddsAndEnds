@@ -7,7 +7,7 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 @Mod(value = OddsAndEnds.MOD_ID, dist = Dist.CLIENT)
-// @EventBusSubscriber(modid = LanternTweaks.MOD_ID, value = Dist.CLIENT) // Add this if using @SubscribeEvent
+// @EventBusSubscriber(modid = OddsAndEnds.MOD_ID, value = Dist.CLIENT) // Add this if using @SubscribeEvent
 public class OddsAndEndsClient {
     public OddsAndEndsClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
