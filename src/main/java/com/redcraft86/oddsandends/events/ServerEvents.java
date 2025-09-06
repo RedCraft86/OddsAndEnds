@@ -9,19 +9,65 @@ import com.redcraft86.oddsandends.configs.CommonCfg;
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.common.*;
 
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.BlockPos;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
+import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
 public class ServerEvents {
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    @SubscribeEvent
+    static void onServerStart(LevelEvent.Load e) {
+        LevelAccessor level = e.getLevel();
+        if (level.isClientSide()) {
+            return;
+        }
+
+        ImprovedBoneMeal.generateFlowerList((Level)level);
+    }
+
+    @SubscribeEvent
+    static void onRightClickBlock(PlayerInteractEvent.RightClickBlock e) {
+        Level level = e.getLevel();
+        if (level.isClientSide()) {
+            return;
+        }
+
+        BlockPos pos = e.getPos();
+        Player player = e.getEntity();
+        ItemStack item = e.getItemStack();
+
+        if (e.getHand() == InteractionHand.MAIN_HAND) {
+            e.setCanceled(ImprovedBoneMeal.handleInteract(level, player, item, pos));
+        } // else {
+        // }
+    }
+
+    @SubscribeEvent
+    static void OnBonemeal(BonemealEvent e) {
+        Level level = e.getLevel();
+        if (level.isClientSide()) {
+            return;
+        }
+
+        BlockPos pos = e.getPos();
+        Player player = e.getPlayer();
+        ImprovedBoneMeal.handleBoneMeal(level, player, pos);
+    }
 
     @SubscribeEvent(receiveCanceled = true)
     static void onWorldCreate(LevelEvent.CreateSpawnPosition e) {

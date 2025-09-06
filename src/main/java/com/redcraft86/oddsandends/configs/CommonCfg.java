@@ -11,6 +11,13 @@ public class CommonCfg {
 
     public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
 
+    public static final ModConfigSpec.BooleanValue DIRT_TO_GRASS;
+    public static final ModConfigSpec.BooleanValue SNEAKY_GRASS_CHANCE;
+    public static final ModConfigSpec.IntValue SHORT_GRASS_CHANCE;
+    public static final ModConfigSpec.IntValue TALL_GRASS_CHANCE;
+    public static final ModConfigSpec.IntValue RANDOM_FLOWER_CHANCE;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> FLOWER_BLACKLIST;
+
     public static final ModConfigSpec.IntValue SEARCH_RADIUS;
     public static final ModConfigSpec.ConfigValue<String> STRUCTURE_SPAWNPOINT;
     public static final ModConfigSpec.BooleanValue RANDOM_TAGGED_STRUCTURE;
@@ -22,6 +29,28 @@ public class CommonCfg {
         GRIEF_BLACKLIST = BUILDER.comment("A list of entities blacklisted from griefing the world.")
                 .defineListAllowEmpty("griefingBlacklist",
                         List.of("minecraft:enderman", "minecraft:fireball", "minecraft:wither_skull"),
+                        () -> "", CommonCfg::validateResource);
+
+        BUILDER.pop();
+        BUILDER.push("improvedBoneMeal");
+
+        DIRT_TO_GRASS = BUILDER.comment("Adds the ability to bone meal a block of dirt to grass")
+                .define("dirtToGrass", true);
+
+        SNEAKY_GRASS_CHANCE = BUILDER.comment("If the player should be crouched for the grass chances below to be active.")
+                .define("sneakyGrassChance", true);
+
+        SHORT_GRASS_CHANCE = BUILDER.comment("Chance of short grass spawning from bonemeal.")
+                .defineInRange("shortGrassChance", 50, 0, 100);
+
+        TALL_GRASS_CHANCE = BUILDER.comment("Chance of tall grass spawning from bonemeal.")
+                .defineInRange("tallGrassChance", 25, 0, 100);
+
+        RANDOM_FLOWER_CHANCE = BUILDER.comment("Chance of spawning a random flower instead of air in place of grass.")
+                .defineInRange("randomFlowerChance", 75, 0, 100);
+
+        FLOWER_BLACKLIST = BUILDER.comment("Flowers that should not spawn from bone meal. (Requires world reload)")
+                .defineListAllowEmpty("flowerBlacklist", List.of("minecraft:wither_rose"),
                         () -> "", CommonCfg::validateResource);
 
         BUILDER.pop();
