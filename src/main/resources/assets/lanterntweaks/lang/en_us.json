@@ -3,5 +3,8 @@
 
   "oddsandends.configuration.titleBar": "Title Bar",
   "oddsandends.configuration.memoryTitle": "Memory Usage",
-  "oddsandends.configuration.customTitle": "Custom Text"
+  "oddsandends.configuration.customTitle": "Custom Text",
+
+  "oddsandends.configuration.entities": "Entities",
+  "oddsandends.configuration.griefingBlacklist": "Griefing Blacklist"
 }
