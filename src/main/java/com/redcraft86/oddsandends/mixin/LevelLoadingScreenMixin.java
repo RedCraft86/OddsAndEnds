@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LevelLoadingScreen.class)
-public class LevelLoadScreenMixin {
+public class LevelLoadingScreenMixin {
     @Inject(method = "getFormattedProgress", at = @At("RETURN"), cancellable = true)
     private void getLoadString(CallbackInfoReturnable<Component> cir) {
         if (StructureSpawnPoint.hasActiveStructure()) {
