@@ -5,6 +5,7 @@ import com.mojang.logging.LogUtils;
 
 import com.redcraft86.lanternlib.TransientFlags;
 import com.redcraft86.oddsandends.FlagKeys;
+import com.redcraft86.oddsandends.OddsAndEndsRules;
 import com.redcraft86.oddsandends.configs.CommonCfg;
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.common.*;
@@ -17,26 +18,24 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.OwnableEntity;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
-import net.neoforged.neoforge.event.entity.player.ArrowNockEvent;
 import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.entity.living.LivingGetProjectileEvent;
@@ -118,6 +117,20 @@ public class ServerEvents {
             // Attacker must use a tool to attack otherwise it will fail
             e.setCanceled(!(attackItem.getItem() instanceof TieredItem));
             return;
+        }
+    }
+
+    @SubscribeEvent
+    static void onLivingDamage(LivingDamageEvent.Post e) {
+        LivingEntity target = e.getEntity();
+        Level level = target.level();
+        if (level.isClientSide() || target.getLastDamageSource() == null) {
+            return;
+        }
+
+        if (level.getGameRules().getBoolean(OddsAndEndsRules.NO_ATK_COOLDOWN)
+                && target.getLastDamageSource().is(DamageTypes.PLAYER_ATTACK)) {
+            target.invulnerableTime = 0;
         }
     }
 

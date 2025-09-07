@@ -18,7 +18,8 @@ public class OddsAndEnds {
 
     public OddsAndEnds(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
-        //NeoForge.EVENT_BUS.register(this); // Add this if using @SubscribeEvent
+
+        OddsAndEndsRules.registerRules();
 
         modContainer.registerConfig(ModConfig.Type.CLIENT, ClientCfg.SPEC);
         modContainer.registerConfig(ModConfig.Type.COMMON, CommonCfg.SPEC);
