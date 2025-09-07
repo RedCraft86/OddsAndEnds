@@ -77,7 +77,7 @@ public class CommonCfg {
         BUILDER.pop();
         BUILDER.push("improvedBoneMeal");
 
-        DIRT_TO_GRASS = BUILDER.comment("Adds the ability to bone meal a block of dirt to grass")
+        DIRT_TO_GRASS = BUILDER.comment("Adds the ability to bone meal a block of dirt to grass.")
                 .define("dirtToGrass", true);
 
         SNEAKY_GRASS_CHANCE = BUILDER.comment("If the player should be crouched for the grass chances below to be active.")
