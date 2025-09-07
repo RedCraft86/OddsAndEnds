@@ -11,6 +11,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class CommonCfg {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    public static final ModConfigSpec.BooleanValue MIX_ENCHANTMENTS;
+
     public static final ModConfigSpec.BooleanValue NO_TEMPT_COOLDOWN;
     public static final ModConfigSpec.BooleanValue INFINITE_VILLAGERS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
@@ -32,6 +34,10 @@ public class CommonCfg {
     public static final ModConfigSpec.ConfigValue<List<? extends String>> STRUCTURE_BLACKLIST;
 
     static {
+
+        MIX_ENCHANTMENTS = BUILDER.comment("Allows you to merge any enchantment together, even if they are incompatible.")
+                .define("mixEnchants", true);
+
         BUILDER.push("entities");
 
         NO_TEMPT_COOLDOWN = BUILDER.comment("Makes mobs that can be tempted with food items never enter a tempt cooldown.")
