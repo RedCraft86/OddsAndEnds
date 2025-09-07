@@ -6,6 +6,7 @@
     "CampfireBlockEntityMixin",
     "EnchantmentMixin",
     "PlayerMixin",
+    "RemoveSpeedLimits",
     "TemptGoalMixin"
   ],
   "client": [
