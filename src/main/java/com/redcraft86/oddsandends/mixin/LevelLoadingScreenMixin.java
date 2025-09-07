@@ -1,7 +1,6 @@
 package com.redcraft86.oddsandends.mixin;
 
-import com.redcraft86.lanternlib.TransientFlags;
-import com.redcraft86.oddsandends.FlagKeys;
+import com.redcraft86.oddsandends.TransientFlags;
 
 import com.redcraft86.oddsandends.common.StructureSpawnPoint;
 import net.minecraft.client.gui.screens.LevelLoadingScreen;
@@ -20,7 +19,7 @@ public class LevelLoadingScreenMixin {
             cir.setReturnValue(Component.translatable("oddsandends.worldload.locate",
                     StructureSpawnPoint.getActiveStructure()));
         } else {
-            cir.setReturnValue(Component.translatable(TransientFlags.hasFlag(FlagKeys.GENERATING_WORLD) ?
+            cir.setReturnValue(Component.translatable(TransientFlags.hasFlag(TransientFlags.GENERATING_WORLD) ?
                     "oddsandends.worldload.generating" : "oddsandends.worldload.loading",
                     cir.getReturnValue()));
         }

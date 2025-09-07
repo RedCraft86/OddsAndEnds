@@ -3,8 +3,7 @@ package com.redcraft86.oddsandends.events;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
-import com.redcraft86.lanternlib.TransientFlags;
-import com.redcraft86.oddsandends.FlagKeys;
+import com.redcraft86.oddsandends.TransientFlags;
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.client.*;
 
@@ -19,7 +18,7 @@ public class ClientEvents {
 
     @SubscribeEvent
     static void onScreenOpen(ScreenEvent.Opening e) {
-        TransientFlags.removeFlag(FlagKeys.GENERATING_WORLD);
+        TransientFlags.removeFlag(com.redcraft86.oddsandends.TransientFlags.GENERATING_WORLD);
         StartupSound.handle(e.getNewScreen());
     }
 }

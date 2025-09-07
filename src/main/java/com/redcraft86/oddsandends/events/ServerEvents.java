@@ -3,8 +3,7 @@ package com.redcraft86.oddsandends.events;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
-import com.redcraft86.lanternlib.TransientFlags;
-import com.redcraft86.oddsandends.FlagKeys;
+import com.redcraft86.oddsandends.TransientFlags;
 import com.redcraft86.oddsandends.OddsAndEndsRules;
 import com.redcraft86.oddsandends.configs.CommonCfg;
 import com.redcraft86.oddsandends.OddsAndEnds;
@@ -153,7 +152,7 @@ public class ServerEvents {
             return;
         }
 
-        TransientFlags.addFlag(FlagKeys.GENERATING_WORLD);
+        TransientFlags.addFlag(TransientFlags.GENERATING_WORLD);
         if (StructureSpawnPoint.handle(levelAccessor)) {
             e.setCanceled(true);
         }

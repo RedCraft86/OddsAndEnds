@@ -34,12 +34,12 @@ versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${mod_id}]]
-modId="lanternlib"
-type="required"
-versionRange="${lanternlib_version_range}"
-ordering="AFTER"
-side="BOTH"
+#[[dependencies.${mod_id}]]
+#modId="lanternlib"
+#type="required"
+#versionRange="${lanternlib_version_range}"
+#ordering="AFTER"
+#side="BOTH"
 
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
