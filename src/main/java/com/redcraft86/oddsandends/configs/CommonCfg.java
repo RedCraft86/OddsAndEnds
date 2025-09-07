@@ -14,7 +14,7 @@ public class CommonCfg {
     public static final ModConfigSpec.BooleanValue TRUE_INFINITY;
     public static final ModConfigSpec.BooleanValue MIX_ENCHANTMENTS;
 
-    public static final ModConfigSpec.BooleanValue NO_POISON_REGEN;
+    //public static final ModConfigSpec.BooleanValue NO_POISON_REGEN;
     public static final ModConfigSpec.BooleanValue NO_PET_ATTACK;
     public static final ModConfigSpec.BooleanValue NO_VILLAGER_ATTACK;
     public static final ModConfigSpec.BooleanValue NO_TEMPT_COOLDOWN;
@@ -49,8 +49,8 @@ public class CommonCfg {
         BUILDER.pop();
         BUILDER.push("entities");
 
-        NO_POISON_REGEN = BUILDER.comment("Makes poison and regeneration effects on the player cancel each other out.")
-                .define("noPoisonRegen", true);
+//        NO_POISON_REGEN = BUILDER.comment("Makes poison and regeneration effects on the player cancel each other out.")
+//                .define("noPoisonRegen", true);
 
         NO_PET_ATTACK = BUILDER.comment("Prevents the player from accidentally attacking their pets.")
                 .define("noPetAttack", true);
