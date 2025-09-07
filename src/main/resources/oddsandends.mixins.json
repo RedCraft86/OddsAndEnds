@@ -5,6 +5,7 @@
   "mixins": [
     "CampfireBlockEntityMixin",
     "EnchantmentMixin",
+    "PlayerMixin",
     "TemptGoalMixin"
   ],
   "client": [

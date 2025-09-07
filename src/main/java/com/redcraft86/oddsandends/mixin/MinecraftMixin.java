@@ -12,12 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
-
-    @Unique
-    private static final int UPDATE_INTERVAL = 5;
-
-    @Unique
-    private static int tickCounter = 0;
+    @Unique private static final int TICK_INTERVAL = 5;
+    @Unique private int tickCounter = 0;
 
     @Inject(method = "createTitle", at = @At("RETURN"), cancellable = true)
     private void onCreateTitle(CallbackInfoReturnable<String> cir) {
@@ -46,10 +42,12 @@ public class MinecraftMixin {
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
-        tickCounter++; // Slow tick
-        if (tickCounter >= UPDATE_INTERVAL) {
-            ((Minecraft)(Object)this).updateTitle();
-            tickCounter = 0;
+        if (tickCounter < TICK_INTERVAL) {
+            tickCounter++; // Slow tick
+            return;
         }
+        tickCounter = 0;
+
+        ((Minecraft)(Object)this).updateTitle();
     }
 }
