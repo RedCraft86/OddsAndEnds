@@ -7,7 +7,8 @@
     "EnchantmentMixin",
     "PlayerMixin",
     "RemoveSpeedLimits",
-    "TemptGoalMixin"
+    "TemptGoalMixin",
+    "accessor.ItemAccessor"
   ],
   "client": [
     "CreativeModeInventoryScreenMixin",
