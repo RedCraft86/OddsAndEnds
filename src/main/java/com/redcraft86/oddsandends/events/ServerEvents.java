@@ -9,6 +9,9 @@ import com.redcraft86.oddsandends.configs.CommonCfg;
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.common.*;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -17,19 +20,26 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.OwnableEntity;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.entity.npc.AbstractVillager;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
+import net.neoforged.neoforge.event.entity.player.ArrowNockEvent;
 import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.entity.living.LivingGetProjectileEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
 public class ServerEvents {
@@ -145,5 +155,29 @@ public class ServerEvents {
 
         ResourceLocation resource = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
         e.setCanGrief(!CommonCfg.GRIEF_BLACKLIST.get().contains(resource.toString()));
+    }
+
+    @SubscribeEvent
+    static void trueInfinity(final LivingGetProjectileEvent e) {
+        if (!CommonCfg.TRUE_INFINITY.get()) {
+            return;
+        }
+
+        ItemStack weaponStack = e.getProjectileWeaponItemStack();
+        if (e.getEntity() instanceof Player player
+                && player.level() instanceof ServerLevel level
+                && weaponStack.getItem() instanceof ProjectileWeaponItem weapon
+                && e.getProjectileItemStack().isEmpty()) {
+
+            int ammoCount = 0;
+            ItemStack ammo = weapon.getDefaultCreativeAmmo(player, weaponStack);
+            if (!(ammo.getItem() instanceof ArrowItem arrow && arrow.isInfinite(ammo, weaponStack, player))) {
+                ammoCount = EnchantmentHelper.processAmmoUse(level, weaponStack, ammo, 1);
+            }
+
+            if (ammoCount == 0) {
+                e.setProjectileItemStack(ammo);
+            }
+        }
     }
 }

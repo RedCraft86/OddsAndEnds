@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class CommonCfg {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    public static final ModConfigSpec.BooleanValue TRUE_INFINITY;
     public static final ModConfigSpec.BooleanValue MIX_ENCHANTMENTS;
 
     public static final ModConfigSpec.BooleanValue NO_PET_ATTACK;
@@ -36,10 +37,15 @@ public class CommonCfg {
     public static final ModConfigSpec.ConfigValue<List<? extends String>> STRUCTURE_BLACKLIST;
 
     static {
+        BUILDER.push("enchantments");
+
+        TRUE_INFINITY = BUILDER.comment("Makes the infinity enchantment on bows not need a single arrow.")
+                .define("trueInfinity", true);
 
         MIX_ENCHANTMENTS = BUILDER.comment("Allows you to merge any enchantment together, even if they are incompatible.")
                 .define("mixEnchants", true);
 
+        BUILDER.pop();
         BUILDER.push("entities");
 
         NO_PET_ATTACK = BUILDER.comment("Prevents the player from accidentally attacking their pets.")

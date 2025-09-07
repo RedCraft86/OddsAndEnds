@@ -6,6 +6,8 @@
   "oddsandends.configuration.memoryTitle": "Memory Usage",
   "oddsandends.configuration.customTitle": "Custom Text",
 
+  "oddsandends.configuration.enchantments": "Enchantments",
+  "oddsandends.configuration.trueInfinity": "True Infinity",
   "oddsandends.configuration.mixEnchants": "Mix Enchantments",
 
   "oddsandends.configuration.entities": "Entities",
