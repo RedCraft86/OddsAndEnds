@@ -40,11 +40,10 @@ public class SoulCampfireEffects {
             }
 
             if (CommonCfg.SOULFIRE_CLEAR_HARM.get()) {
-                for (MobEffectInstance effect : player.getActiveEffects()) {
-                    if (effect != null && effect.getEffect().value().getCategory() == MobEffectCategory.HARMFUL) {
-                        player.removeEffect(effect.getEffect());
-                    }
-                }
+                player.getActiveEffects().stream()
+                        .filter(effect -> effect != null
+                                && effect.getEffect().value().getCategory() == MobEffectCategory.HARMFUL)
+                        .map(MobEffectInstance::getEffect).toList().forEach(player::removeEffect);
             }
 
             for (Map.Entry<Holder<MobEffect>, Integer> entry : effects.entrySet()) {
