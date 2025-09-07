@@ -12,9 +12,11 @@ import com.redcraft86.oddsandends.common.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +28,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
@@ -41,6 +44,23 @@ public class ServerEvents {
 
         SoulCampfireEffects.generateEffectList();
         ImprovedBoneMeal.generateFlowerList((Level)level);
+    }
+
+    @SubscribeEvent
+    static void onRightClickBlock(PlayerInteractEvent.RightClickBlock e) {
+        Level level = e.getLevel();
+        if (level.isClientSide()) {
+            return;
+        }
+
+        BlockPos pos = e.getPos();
+        Player player = e.getEntity();
+        ItemStack item = e.getItemStack();
+
+        if (e.getHand() == InteractionHand.MAIN_HAND) {
+            e.setCanceled(ImprovedBoneMeal.handleInteract(level, player, item, pos));
+        } // else {
+        // }
     }
 
     @SubscribeEvent
@@ -68,20 +88,27 @@ public class ServerEvents {
     }
 
     @SubscribeEvent
-    static void onRightClickBlock(PlayerInteractEvent.RightClickBlock e) {
-        Level level = e.getLevel();
+    static void onAttackEntity(AttackEntityEvent e) {
+        Entity target = e.getTarget();
+        Level level = target.level();
         if (level.isClientSide()) {
             return;
         }
 
-        BlockPos pos = e.getPos();
         Player player = e.getEntity();
-        ItemStack item = e.getItemStack();
+        ItemStack attackItem = player.getMainHandItem();
 
-        if (e.getHand() == InteractionHand.MAIN_HAND) {
-            e.setCanceled(ImprovedBoneMeal.handleInteract(level, player, item, pos));
-        } // else {
-        // }
+        if (CommonCfg.NO_PET_ATTACK.get() && target instanceof OwnableEntity petMob) {
+            // Attacker must be the owner for the attack to fail
+            e.setCanceled(petMob.getOwner() == player);
+            return;
+        }
+
+        if (CommonCfg.NO_VILLAGER_ATTACK.get() && target instanceof AbstractVillager) {
+            // Attacker must use a tool to attack otherwise it will fail
+            e.setCanceled(!(attackItem.getItem() instanceof TieredItem));
+            return;
+        }
     }
 
     @SubscribeEvent

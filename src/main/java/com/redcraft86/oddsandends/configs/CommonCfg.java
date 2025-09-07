@@ -13,6 +13,8 @@ public class CommonCfg {
 
     public static final ModConfigSpec.BooleanValue MIX_ENCHANTMENTS;
 
+    public static final ModConfigSpec.BooleanValue NO_PET_ATTACK;
+    public static final ModConfigSpec.BooleanValue NO_VILLAGER_ATTACK;
     public static final ModConfigSpec.BooleanValue NO_TEMPT_COOLDOWN;
     public static final ModConfigSpec.BooleanValue INFINITE_VILLAGERS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
@@ -39,6 +41,12 @@ public class CommonCfg {
                 .define("mixEnchants", true);
 
         BUILDER.push("entities");
+
+        NO_PET_ATTACK = BUILDER.comment("Prevents the player from accidentally attacking their pets.")
+                .define("noPetAttack", true);
+
+        NO_VILLAGER_ATTACK = BUILDER.comment("Prevents the player from accidentally attacking villagers unless holding a tool.")
+                .define("noVillagerAttack", true);
 
         NO_TEMPT_COOLDOWN = BUILDER.comment("Makes mobs that can be tempted with food items never enter a tempt cooldown.")
                 .define("noTemptCooldown", true);

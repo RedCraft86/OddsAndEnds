@@ -9,6 +9,8 @@
   "oddsandends.configuration.mixEnchants": "Mix Enchantments",
 
   "oddsandends.configuration.entities": "Entities",
+  "oddsandends.configuration.noPetAttack": "No Pet Attack",
+  "oddsandends.configuration.noVillagerAttack": "No Villager Attack",
   "oddsandends.configuration.noTemptCooldown": "No Tempt Cooldown",
   "oddsandends.configuration.infiniteVillagers": "Unlimited Villagers",
   "oddsandends.configuration.griefingBlacklist": "Griefing Blacklist",
