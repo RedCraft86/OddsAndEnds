@@ -1,16 +1,26 @@
 {
+  "oddsandends.configuration.hideCreativeTabTips": "Hide Creative Tab Tooltips",
   "oddsandends.configuration.startupSounds": "Startup Sounds",
 
   "oddsandends.configuration.titleBar": "Title Bar",
   "oddsandends.configuration.memoryTitle": "Memory Usage",
   "oddsandends.configuration.customTitle": "Custom Text",
 
+  "oddsandends.configuration.mixEnchants": "Mix Enchantments",
+
   "oddsandends.configuration.entities": "Entities",
+  "oddsandends.configuration.noTemptCooldown": "No Tempt Cooldown",
+  "oddsandends.configuration.infiniteVillagers": "Unlimited Villagers",
   "oddsandends.configuration.griefingBlacklist": "Griefing Blacklist",
+
+  "oddsandends.configuration.betterSoulfires": "Better Soul Campfires",
+  "oddsandends.configuration.soulfireRange": "Effect Range",
+  "oddsandends.configuration.soulfireNoHarm": "Remove Harmful Effects",
+  "oddsandends.configuration.soulfireEffects": "Passive Effects",
 
   "oddsandends.configuration.improvedBoneMeal": "Improved Bone Meal",
   "oddsandends.configuration.dirtToGrass": "Dirt to Grass",
-  "oddsandends.configuration.sneakyGrassChance": "Sneaky Grass",
+  "oddsandends.configuration.sneakyGrassChance": "Sneaky Grass Chances",
   "oddsandends.configuration.shortGrassChance": "Short Grass Chance",
   "oddsandends.configuration.tallGrassChance": "Tall Grass Chance",
   "oddsandends.configuration.randomFlowerChance": "Random Flower Chance",
