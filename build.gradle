@@ -15,6 +15,7 @@ group = mod_group_id
 repositories {
     mavenLocal() // this looks at ~/.m2/repository
     maven { url = 'https://maven.minecraftforge.net/' }
+    maven { url = 'https://www.cursemaven.com' }
 }
 
 base {
@@ -76,6 +77,10 @@ configurations {
 
 dependencies {
     implementation "com.redcraft86.lanternlib:LanternLib:${lanternlib_version}"
+
+    // QOL mods
+    localRuntime "curse.maven:emi-580555:6420931"
+    localRuntime "curse.maven:cucumber-272335:6864715"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
