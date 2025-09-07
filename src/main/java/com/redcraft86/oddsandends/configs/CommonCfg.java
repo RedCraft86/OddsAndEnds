@@ -2,6 +2,8 @@ package com.redcraft86.oddsandends.configs;
 
 import java.util.List;
 
+import com.redcraft86.oddsandends.common.*;
+
 import net.minecraft.resources.ResourceLocation;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
@@ -11,6 +13,10 @@ public class CommonCfg {
 
     public static final ModConfigSpec.BooleanValue INFINITE_VILLAGERS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
+
+    public static final ModConfigSpec.IntValue SOULFIRE_EFFECT_RANGE;
+    public static final ModConfigSpec.BooleanValue SOULFIRE_CLEAR_HARM;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> SOULFIRE_EFFECTS;
 
     public static final ModConfigSpec.BooleanValue DIRT_TO_GRASS;
     public static final ModConfigSpec.BooleanValue SNEAKY_GRASS_CHANCE;
@@ -35,6 +41,21 @@ public class CommonCfg {
                 .defineListAllowEmpty("griefingBlacklist",
                         List.of("minecraft:enderman", "minecraft:fireball", "minecraft:wither_skull"),
                         () -> "", CommonCfg::validateResource);
+
+        BUILDER.pop();
+        BUILDER.push("betterSoulfires");
+
+        SOULFIRE_EFFECT_RANGE = BUILDER.comment("The range around the soul campfire in which players will receive effects. Set to 0 to disable feature.")
+                .defineInRange("soulfireRange", 3, 0, 10);
+
+        SOULFIRE_CLEAR_HARM = BUILDER.comment("If the soul campfire should clear harmful effects.")
+                .define("soulfireNoHarm", true);
+
+        SOULFIRE_EFFECTS = BUILDER.comment("Effects to give when near soul campfires. (Requires world reload)")
+                .comment("Format: \"effect_id level\" (Level Range: 1 ~ 256)")
+                .defineListAllowEmpty("soulfireEffects",
+                        List.of("minecraft:regeneration 1", "minecraft:saturation 1"),
+                        () -> "", SoulCampfireEffects::validateEntry);
 
         BUILDER.pop();
         BUILDER.push("improvedBoneMeal");

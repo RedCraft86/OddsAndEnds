@@ -39,6 +39,7 @@ public class ServerEvents {
             return;
         }
 
+        SoulCampfireEffects.generateEffectList();
         ImprovedBoneMeal.generateFlowerList((Level)level);
     }
 

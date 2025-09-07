@@ -2,7 +2,9 @@
   "required": true,
   "package": "com.redcraft86.oddsandends.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "CampfireBlockEntityMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
@@ -10,7 +12,7 @@
     "requireAnnotations": true
   },
   "client": [
-    "LevelLoadScreenMixin",
+    "LevelLoadingScreenMixin",
     "MinecraftMixin"
   ]
 }
