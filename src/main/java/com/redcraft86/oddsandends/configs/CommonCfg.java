@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class CommonCfg {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    public static final ModConfigSpec.BooleanValue NO_TEMPT_COOLDOWN;
     public static final ModConfigSpec.BooleanValue INFINITE_VILLAGERS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
 
@@ -33,6 +34,8 @@ public class CommonCfg {
     static {
         BUILDER.push("entities");
 
+        NO_TEMPT_COOLDOWN = BUILDER.comment("Makes mobs that can be tempted with food items never enter a tempt cooldown.")
+                .define("noTemptCooldown", true);
 
         INFINITE_VILLAGERS = BUILDER.comment("Makes villager trades never run out of stock.")
                 .define("infiniteVillagers", true);

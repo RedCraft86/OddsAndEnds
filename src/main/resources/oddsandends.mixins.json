@@ -3,16 +3,17 @@
   "package": "com.redcraft86.oddsandends.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "CampfireBlockEntityMixin"
+    "CampfireBlockEntityMixin",
+    "TemptGoalMixin"
+  ],
+  "client": [
+    "LevelLoadingScreenMixin",
+    "MinecraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-  },
-  "client": [
-    "LevelLoadingScreenMixin",
-    "MinecraftMixin"
-  ]
+  }
 }
