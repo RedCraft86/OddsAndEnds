@@ -76,7 +76,7 @@ configurations {
 }
 
 dependencies {
-    implementation "com.redcraft86.lanternlib:LanternLib:${lanternlib_version}"
+    implementation "com.redcraft86.lanternlib:LanternLib:${lanternlib_version}-${minecraft_version}"
 
     // QOL mods
     localRuntime "curse.maven:emi-580555:6420931"
