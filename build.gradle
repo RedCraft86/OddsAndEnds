@@ -90,7 +90,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:catalogue-459701:4766090")
     runtimeOnly fg.deobf("curse.maven:configured-457570:5180900")
 
-    implementation "com.redcraft86.lanternlib:${minecraft_version}:${lanternlib_version}"
+    implementation fg.deobf("com.redcraft86.lanternlib:${minecraft_version}:${lanternlib_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
