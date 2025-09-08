@@ -5,6 +5,7 @@
   "mixins": [
     "CampfireBlockEntityMixin",
     "EnchantmentMixin",
+    "IBlockExtensionMixin",
     "PlayerMixin",
     "TemptGoalMixin"
   ],

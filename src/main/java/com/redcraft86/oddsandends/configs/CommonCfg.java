@@ -10,6 +10,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class CommonCfg {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    public static final ModConfigSpec.BooleanValue CRYING_PORTALS;
+
     public static final ModConfigSpec.BooleanValue TRUE_INFINITY;
     public static final ModConfigSpec.BooleanValue MIX_ENCHANTMENTS;
 
@@ -35,6 +37,9 @@ public class CommonCfg {
     public static final ModConfigSpec.ConfigValue<List<? extends String>> STRUCTURE_BLACKLIST;
 
     static {
+        CRYING_PORTALS = BUILDER.comment("Allows Crying Obsidian to be used for Nether Portals.")
+                .define("cryingPortals", true);
+
         BUILDER.push("enchantments");
 
         TRUE_INFINITY = BUILDER.comment("Makes the infinity enchantment on bows not need a single arrow.")
