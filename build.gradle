@@ -76,11 +76,11 @@ configurations {
 }
 
 dependencies {
-    implementation "com.redcraft86.lanternlib:1.21.1:${lanternlib_version}-${minecraft_version}"
-
     // QOL mods
     localRuntime "curse.maven:emi-580555:6420931"
     localRuntime "curse.maven:cucumber-272335:6864715"
+
+    implementation "com.redcraft86.lanternlib:1.21.1:${lanternlib_version}-${minecraft_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
