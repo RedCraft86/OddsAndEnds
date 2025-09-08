@@ -37,7 +37,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="lanternlib"
 type="required"
-versionRange="${lanternlib_version_range}"
+versionRange="[${lanternlib_version},)"
 ordering="AFTER"
 side="BOTH"
 
