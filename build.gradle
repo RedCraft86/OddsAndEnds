@@ -87,6 +87,8 @@ dependencies {
     // QOL mods
     runtimeOnly fg.deobf("curse.maven:emi-580555:6420945")
     runtimeOnly fg.deobf("curse.maven:cucumber-272335:6880321")
+    runtimeOnly fg.deobf("curse.maven:catalogue-459701:4766090")
+    runtimeOnly fg.deobf("curse.maven:configured-457570:5180900")
 
     implementation "com.redcraft86.lanternlib:${minecraft_version}:${lanternlib_version}"
 
