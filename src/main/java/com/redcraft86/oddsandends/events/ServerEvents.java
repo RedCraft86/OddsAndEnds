@@ -81,12 +81,10 @@ public class ServerEvents {
         ItemStack item = e.getItemStack();
 
         if (e.getHand() == InteractionHand.MAIN_HAND) {
-            if (CommonCfg.INFINITE_VILLAGERS.get()) {
-                if (target instanceof AbstractVillager villager) {
-                    for (MerchantOffer offer : villager.getOffers()) {
-                        offer.maxUses = Integer.MAX_VALUE;
-                        offer.resetUses();
-                    }
+            if (CommonCfg.INFINITE_VILLAGERS.get() && target instanceof AbstractVillager villager) {
+                for (MerchantOffer offer : villager.getOffers()) {
+                    offer.maxUses = Integer.MAX_VALUE;
+                    offer.resetUses();
                 }
             }
         } // else {
