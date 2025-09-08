@@ -1,6 +1,7 @@
 modLoader="javafml"
-loaderVersion="${loader_version_range}"
 license="${mod_license}"
+loaderVersion="${loader_version_range}"
+issueTrackerURL="https://github.com/RedCraft86/${repo_name}/issues"
 
 [[mods]]
 modId="${mod_id}"
@@ -8,11 +9,10 @@ version="${mod_version}"
 displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
-issueTrackerURL="https://github.com/RedCraft86/${repo_name}/issues"
 credits="To anyone who may have contributed via GitHub"
+displayURL="https://github.com/RedCraft86/${repo_name}"
 logoFile="logo.png"
 #updateJSONURL=""
-#displayURL=""
 
 [[mixins]]
 config="${mod_id}.mixins.json"
