@@ -3,14 +3,13 @@ package com.redcraft86.oddsandends.events;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
-import com.redcraft86.lanternlib.TransientFlags;
+import com.redcraft86.oddsandends.common.*;
 import com.redcraft86.oddsandends.FlagKeys;
+import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.OddsAndEndsRules;
 import com.redcraft86.oddsandends.configs.CommonCfg;
-import com.redcraft86.oddsandends.OddsAndEnds;
-import com.redcraft86.oddsandends.common.*;
+import com.redcraft86.lanternlib.TransientFlags;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.level.Level;
@@ -27,14 +26,12 @@ import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.entity.npc.AbstractVillager;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
-import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -157,17 +154,6 @@ public class ServerEvents {
         if (StructureSpawnPoint.handle(levelAccessor)) {
             e.setCanceled(true);
         }
-    }
-
-    @SubscribeEvent
-    static void onMobGrief(EntityMobGriefingEvent e) {
-        Entity entity = e.getEntity();
-        if (entity.level().isClientSide()) {
-            return;
-        }
-
-        ResourceLocation resource = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
-        e.setCanGrief(!CommonCfg.GRIEF_BLACKLIST.get().contains(resource.toString()));
     }
 
     @SubscribeEvent

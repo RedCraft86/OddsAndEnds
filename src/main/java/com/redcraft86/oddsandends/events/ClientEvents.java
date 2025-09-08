@@ -3,10 +3,10 @@ package com.redcraft86.oddsandends.events;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
-import com.redcraft86.lanternlib.TransientFlags;
+import com.redcraft86.oddsandends.client.*;
 import com.redcraft86.oddsandends.FlagKeys;
 import com.redcraft86.oddsandends.OddsAndEnds;
-import com.redcraft86.oddsandends.client.*;
+import com.redcraft86.lanternlib.TransientFlags;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

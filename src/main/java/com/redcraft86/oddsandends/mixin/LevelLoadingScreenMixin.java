@@ -1,9 +1,9 @@
 package com.redcraft86.oddsandends.mixin;
 
-import com.redcraft86.lanternlib.TransientFlags;
 import com.redcraft86.oddsandends.FlagKeys;
-
 import com.redcraft86.oddsandends.common.StructureSpawnPoint;
+import com.redcraft86.lanternlib.TransientFlags;
+
 import net.minecraft.client.gui.screens.LevelLoadingScreen;
 import net.minecraft.network.chat.Component;
 

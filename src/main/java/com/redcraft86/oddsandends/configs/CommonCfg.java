@@ -3,8 +3,7 @@ package com.redcraft86.oddsandends.configs;
 import java.util.List;
 
 import com.redcraft86.oddsandends.common.*;
-
-import net.minecraft.resources.ResourceLocation;
+import com.redcraft86.lanternlib.util.LanternUtils;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -18,7 +17,6 @@ public class CommonCfg {
     public static final ModConfigSpec.BooleanValue NO_VILLAGER_ATTACK;
     public static final ModConfigSpec.BooleanValue NO_TEMPT_COOLDOWN;
     public static final ModConfigSpec.BooleanValue INFINITE_VILLAGERS;
-    public static final ModConfigSpec.ConfigValue<List<? extends String>> GRIEF_BLACKLIST;
 
     public static final ModConfigSpec.IntValue SOULFIRE_EFFECT_RANGE;
     public static final ModConfigSpec.BooleanValue SOULFIRE_CLEAR_HARM;
@@ -60,11 +58,6 @@ public class CommonCfg {
         INFINITE_VILLAGERS = BUILDER.comment("Makes villager trades never run out of stock.")
                 .define("infiniteVillagers", true);
 
-        GRIEF_BLACKLIST = BUILDER.comment("A list of entities blacklisted from griefing the world.")
-                .defineListAllowEmpty("griefingBlacklist",
-                        List.of("minecraft:enderman", "minecraft:fireball", "minecraft:wither_skull"),
-                        () -> "", CommonCfg::validateResource);
-
         BUILDER.pop();
         BUILDER.push("betterSoulfires");
 
@@ -100,7 +93,7 @@ public class CommonCfg {
 
         FLOWER_BLACKLIST = BUILDER.comment("Flowers that should not spawn from bone meal. (Requires world reload)")
                 .defineListAllowEmpty("flowerBlacklist", List.of("minecraft:wither_rose"),
-                        () -> "", CommonCfg::validateResource);
+                        () -> "", LanternUtils::validateResourceOnly);
 
         BUILDER.pop();
         BUILDER.push("structureSpawnPoint");
@@ -110,14 +103,14 @@ public class CommonCfg {
 
         STRUCTURE_SPAWNPOINT = BUILDER.comment("Set the world spawn point near a specified structure.")
                 .comment("Either an ID or a tag (prefixed by #). Leave empty to disable.")
-                .define("structure", "#minecraft:village", CommonCfg::validateResourceOrTag);
+                .define("structure", "#minecraft:village", LanternUtils::validateResourceOrTag);
 
         RANDOM_TAGGED_STRUCTURE = BUILDER.comment("If using a tag, whether the structure should be randomly picked instead of going in order.")
                 .define("randomize", true);
 
         STRUCTURE_BLACKLIST = BUILDER.comment("If using a tag, a list of structures to ignore.")
                 .defineListAllowEmpty("blacklist", List.of("minecraft:village_snowy"),
-                        () -> "", CommonCfg::validateResource);
+                        () -> "", LanternUtils::validateResourceOnly);
 
         BUILDER.pop();
     }
@@ -125,34 +118,4 @@ public class CommonCfg {
     public static final ModConfigSpec SPEC = BUILDER.build();
 
     public static boolean isLoaded() { return SPEC.isLoaded(); }
-
-    private static boolean validateResource(final Object obj) {
-        if (obj instanceof String string) {
-            String[] id = string.split(":", 2);
-            if (id.length != 2) {
-                return false;
-            }
-
-            if (id[0].isBlank() || id[1].isBlank()) {
-                return false;
-            }
-
-            return ResourceLocation.isValidNamespace(id[0])
-                    && ResourceLocation.isValidPath(id[1]);
-        }
-
-        return false;
-    }
-
-    private static boolean validateResourceOrTag(final Object obj) {
-        if (obj instanceof String string) {
-            if (string.startsWith("#")) {
-                return validateResource(string.substring(1));
-            } else {
-                return validateResource(obj);
-            }
-        }
-
-        return false;
-    }
 }

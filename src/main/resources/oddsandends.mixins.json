@@ -6,14 +6,10 @@
     "CampfireBlockEntityMixin",
     "EnchantmentMixin",
     "PlayerMixin",
-    "RemoveSpeedLimits",
-    "TemptGoalMixin",
-    "accessor.ItemAccessor"
+    "TemptGoalMixin"
   ],
   "client": [
-    "CreativeModeInventoryScreenMixin",
-    "LevelLoadingScreenMixin",
-    "MinecraftMixin"
+    "LevelLoadingScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
