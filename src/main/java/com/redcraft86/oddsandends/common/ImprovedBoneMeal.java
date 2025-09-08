@@ -68,8 +68,12 @@ public class ImprovedBoneMeal {
                     level.setBlockAndUpdate(pos, airOrRandomFlower().defaultBlockState());
                 } else if (block == Blocks.TALL_GRASS && RANDOM.nextFloat() > tallGrass) {
                     // If tall grass, silently break the top block first to avoid breaking effect
-                    level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), 2 | 16);
-                    level.setBlockAndUpdate(pos, airOrRandomFlower().defaultBlockState());
+                    boolean atBottom = level.getBlockState(pos.above()).is(Blocks.TALL_GRASS);
+                    BlockPos upperPos = atBottom ? pos.above() : pos;
+                    BlockPos lowerPos = atBottom ? pos : pos.below();
+
+                    level.setBlock(upperPos, Blocks.AIR.defaultBlockState(), 2 | 16);
+                    level.setBlockAndUpdate(lowerPos, airOrRandomFlower().defaultBlockState());
                 }
             }
         }));
