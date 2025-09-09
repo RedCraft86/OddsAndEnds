@@ -57,23 +57,20 @@ public class SoulCampfireEffects {
 
     public static boolean validateEntry(final Object obj) {
         if (obj instanceof String string) {
-            String[] result = string.split(" ", 2);
-            if (result.length != 2) {
+            String[] parts = string.split(" ", 2);
+            if (parts.length != 2) {
                 return false;
             }
 
             try {
-                Integer.parseInt(result[1]);
+                Integer.parseInt(parts[1]);
             } catch (NumberFormatException e) {
                 return false;
             }
 
-            String[] id = result[0].split(":", 2);
-            if (id.length != 2) {
-                return false;
-            }
-
-            return ResourceLocation.isValidNamespace(id[0])
+            String[] id = parts[0].split(":", 2);
+            return id.length == 2
+                    && ResourceLocation.isValidNamespace(id[0])
                     && ResourceLocation.isValidPath(id[1]);
         }
 
