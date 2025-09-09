@@ -19,6 +19,8 @@ public class OddsAndEnds {
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        OddsAndEndsRules.registerRules();
+
         context.registerConfig(ModConfig.Type.CLIENT, ClientCfg.SPEC);
         context.registerConfig(ModConfig.Type.COMMON, CommonCfg.SPEC);
     }

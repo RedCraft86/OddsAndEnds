@@ -4,8 +4,14 @@
   "package": "com.redcraft86.oddsandends.mixin",
   "refmap": "oddsandends.refmap.json",
   "mixins": [
+    "CampfireBlockEntityMixin",
+    "EnchantmentMixin",
+    "IForgeBlockMixin",
+    "PlayerMixin",
+    "TemptGoalMixin"
   ],
   "client": [
+    "LevelLoadingScreenMixin"
   ],
   "minVersion": "0.8"
 }
