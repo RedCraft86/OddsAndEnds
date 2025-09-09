@@ -3,7 +3,7 @@ package com.redcraft86.oddsandends.configs;
 import java.util.List;
 
 import com.redcraft86.oddsandends.common.*;
-import com.redcraft86.lanternlib.util.LanternUtils;
+import com.redcraft86.lanternlib.util.ValidationUtils;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -98,7 +98,7 @@ public class CommonCfg {
 
         FLOWER_BLACKLIST = BUILDER.comment("Flowers that should not spawn from bone meal. (Requires world reload)")
                 .defineListAllowEmpty("flowerBlacklist", List.of("minecraft:wither_rose"),
-                        () -> "", LanternUtils::validateResourceOnly);
+                        () -> "", ValidationUtils::resourceOnly);
 
         BUILDER.pop();
         BUILDER.push("structureSpawnPoint");
@@ -108,14 +108,14 @@ public class CommonCfg {
 
         STRUCTURE_SPAWNPOINT = BUILDER.comment("Set the world spawn point near a specified structure.")
                 .comment("Either an ID or a tag (prefixed by #). Leave empty to disable.")
-                .define("structure", "#minecraft:village", LanternUtils::validateResourceOrTag);
+                .define("structure", "#minecraft:village", ValidationUtils::resourceOrTag);
 
         RANDOM_TAGGED_STRUCTURE = BUILDER.comment("If using a tag, whether the structure should be randomly picked instead of going in order.")
                 .define("randomize", true);
 
         STRUCTURE_BLACKLIST = BUILDER.comment("If using a tag, a list of structures to ignore.")
                 .defineListAllowEmpty("blacklist", List.of("minecraft:village_snowy"),
-                        () -> "", LanternUtils::validateResourceOnly);
+                        () -> "", ValidationUtils::resourceOnly);
 
         BUILDER.pop();
     }
