@@ -6,8 +6,6 @@ import com.mojang.logging.LogUtils;
 import com.redcraft86.oddsandends.configs.*;
 import com.redcraft86.oddsandends.common.registries.*;
 
-import net.minecraft.world.item.CreativeModeTabs;
-
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.common.MinecraftForge;
