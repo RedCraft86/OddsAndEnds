@@ -11,4 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class BlockRegistry {
     public static final BlockRegister BLOCKS = new BlockRegister(OddsAndEnds.MOD_ID, ItemRegistry.ITEMS);
+
+    public static final RegistryObject<Block> RAINBOW_BEACON = BLOCKS.addBlock("rainbow_beacon",
+            RainbowBeaconBlock::new, CreativeModeTabs.FUNCTIONAL_BLOCKS);
 }
