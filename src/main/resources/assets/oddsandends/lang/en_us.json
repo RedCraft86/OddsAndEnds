@@ -31,7 +31,11 @@
   "oddsandends.configuration.structure": "Structure",
   "oddsandends.configuration.blacklist": "Blacklist",
 
-  "oddsandends.worldload.loading": "Loading %s",
-  "oddsandends.worldload.generating": "Generating %s",
-  "oddsandends.worldload.locate": "Locating nearby %s, please wait"
+  "message.oddsandends.world_load": "Loading %s",
+  "message.oddsandends.world_generate": "Generating %s",
+  "message.oddsandends.world_locate": "Locating nearby %s, please wait",
+
+  "tooltip.oddsandends.rainbow_beacon": "Makes beacon beams §cr§6a§ei§an§bbo§9w",
+
+  "block.oddsandends.rainbow_beacon": "Rainbow Beacon"
 }
