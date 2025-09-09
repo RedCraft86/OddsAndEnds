@@ -4,12 +4,14 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import com.redcraft86.oddsandends.configs.*;
+import com.redcraft86.oddsandends.common.registries.*;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @Mod(OddsAndEnds.MOD_ID)
 public class OddsAndEnds {
@@ -20,11 +22,19 @@ public class OddsAndEnds {
         modEventBus.addListener(this::commonSetup);
 
         OddsAndEndsRules.registerRules();
+        ItemRegistry.ITEMS.register(modEventBus);
+        BlockRegistry.BLOCKS.register(modEventBus);
+
+        modEventBus.addListener(this::addCreative);
 
         modContainer.registerConfig(ModConfig.Type.CLIENT, ClientCfg.SPEC);
         modContainer.registerConfig(ModConfig.Type.COMMON, CommonCfg.SPEC);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
+    private void commonSetup(FMLCommonSetupEvent event) {}
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        ItemRegistry.ITEMS.addCreative(event);
+        BlockRegistry.BLOCKS.addCreative(event);
     }
 }
