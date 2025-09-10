@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"IRI",
+		"CGC"
+	],
+	"key": {
+		"#": {
+			"tag": "c:stained_glass"
+		},
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"R": {
+			"item": "minecraft:redstone"
+		},
+		"C": {
+			"item": "minecraft:cobblestone"
+		},
+		"G": {
+			"item": "minecraft:glass"
+		}
+	},
+	"result": {
+		"id": "oddsandends:rainbow_beacon",
+		"count": 1
+	}
+}

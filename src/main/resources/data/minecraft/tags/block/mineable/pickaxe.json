@@ -1,6 +1,8 @@
 {
 	"replace": false,
 	"values": [
+		"oddsandends:rainbow_beacon",
+
 		"minecraft:reinforced_deepslate",
 		"minecraft:glowstone",
 		"minecraft:sea_lantern",
