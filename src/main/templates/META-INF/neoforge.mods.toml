@@ -9,8 +9,8 @@ version="${mod_version}"
 displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
-credits="To anyone who may have contributed via GitHub"
 displayURL="https://github.com/RedCraft86/${repo_name}"
+credits="${mod_credits}"
 logoFile="logo.png"
 #updateJSONURL=""
 
@@ -42,7 +42,7 @@ ordering="AFTER"
 side="BOTH"
 
 [modproperties.${mod_id}]
-catalogueImageIcon = "logo.png"
+catalogueImageIcon="logo.png"
 
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
