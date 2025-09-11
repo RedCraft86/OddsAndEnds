@@ -18,25 +18,25 @@ logoFile="logo.png"
 config="${mod_id}.mixins.json"
 
 [[dependencies.${mod_id}]]
-    modId="forge"
-    mandatory=true
-    versionRange="${forge_version_range}"
-    ordering="NONE"
-    side="BOTH"
+modId="forge"
+mandatory=true
+versionRange="${forge_version_range}"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
+modId="minecraft"
+mandatory=true
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="lanternlib"
-    mandatory=true
-    versionRange="[${lanternlib_version},)"
-    ordering="AFTER"
-    side="BOTH"
+modId="lanternlib"
+mandatory=true
+versionRange="[${lanternlib_version},)"
+ordering="AFTER"
+side="BOTH"
 
 [modproperties.${mod_id}]
 catalogueImageIcon = "logo.png"
