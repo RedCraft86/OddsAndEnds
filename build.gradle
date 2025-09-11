@@ -13,9 +13,19 @@ version = mod_version
 group = mod_group_id
 
 repositories {
-    mavenLocal() // this looks at ~/.m2/repository
-    maven { url = 'https://maven.minecraftforge.net/' }
-    maven { url = 'https://www.cursemaven.com' }
+    mavenLocal()
+
+    maven { 
+        url = 'https://maven.minecraftforge.net/' 
+    }
+
+    maven { 
+        url = 'https://www.cursemaven.com' 
+    }
+
+    maven {
+        url "https://api.modrinth.com/maven"
+    }
 }
 
 base {
