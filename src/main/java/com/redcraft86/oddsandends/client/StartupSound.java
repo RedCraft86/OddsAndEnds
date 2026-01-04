@@ -1,0 +1,88 @@
+package com.redcraft86.oddsandends.client;
+
+import java.util.List;
+import java.util.Random;
+import org.slf4j.Logger;
+import com.mojang.logging.LogUtils;
+
+import com.redcraft86.oddsandends.configs.ClientCfg;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+
+import net.minecraftforge.registries.ForgeRegistries;
+
+public class StartupSound {
+    private static boolean hasPlayed = false;
+    private static final Random RANDOM = new Random();
+    private static final Logger LOGGER = LogUtils.getLogger();
+
+    public static void handle(Screen screen) {
+        if (!hasPlayed && screen instanceof TitleScreen) {
+            hasPlayed = true;
+
+//            if (!ClientCfg.isLoaded()) {
+//                LOGGER.warn("[Startup Sound] Failed to play startup sound: Client Config has not been loaded!");
+//                return;
+//            }
+
+            List<? extends String> entries = ClientCfg.STARTUP_SOUNDS.get();
+            if (entries.isEmpty()) {
+                return;
+            }
+
+            String entry = entries.get(RANDOM.nextInt(entries.size()));
+            String[] values = entry.split(" ", 2);
+            if (values.length != 2) {
+                LOGGER.warn("[Startup Sound] Failed to parse startup sound: {}", entry);
+                return;
+            }
+
+            ResourceLocation resource = ResourceLocation.tryParse(values[0]);
+            float volume;
+            try {
+                volume = Float.parseFloat(values[1]);
+            } catch (NumberFormatException e) {
+                volume = 0.0f;
+            }
+            if (resource == null || volume <= 0.05f) {
+                LOGGER.warn("[Startup Sound] Invalid startup sound entry: {}", entry);
+                return;
+            }
+
+            SoundEvent soundEvent = ForgeRegistries.SOUND_EVENTS.getValue(resource);
+            if (soundEvent != null) {
+                Minecraft.getInstance().getSoundManager().playDelayed(
+                        SimpleSoundInstance.forUI(soundEvent, 1, volume), 50);
+            } else {
+                LOGGER.warn("[Startup Sound] Sound Event: {} does not exist!", resource);
+            }
+        }
+    }
+
+    public static boolean validateEntry(final Object obj) {
+        if (obj instanceof String string) {
+            String[] parts = string.split(" ", 2);
+            if (parts.length != 2) {
+                return false;
+            }
+
+            try {
+                Float.parseFloat(parts[1]);
+            } catch (NumberFormatException e) {
+                return false;
+            }
+
+            String[] id = parts[0].split(":", 2);
+            return id.length == 2
+                    && ResourceLocation.isValidNamespace(id[0])
+                    && ResourceLocation.isValidPath(id[1]);
+        }
+
+        return false;
+    }
+}

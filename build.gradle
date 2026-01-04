@@ -1,8 +1,3 @@
-/* Initial Setup: ./gradlew genIntellijRuns
- * Local Publish: ./gradlew publishToMavenLocal
- * Make Jar File: ./gradlew build
- */
-
 plugins {
     id 'eclipse'
     id 'idea'
@@ -12,15 +7,15 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
+version = mod_version
 group = mod_group_id
-version = "${minecraft_version}-${mod_version}"
 
 base {
     archivesName = mod_id
 }
 
 jar {
-    archiveFileName = "${mod_id}-${minecraft_version}-${mod_version}.jar"
+    archiveFileName = "${mod_id}-${mod_version}-${minecraft_version}.jar"
 }
 
 mixin {
@@ -32,7 +27,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: mapping_channel, version: "${mapping_version}-${minecraft_version}"
+    mappings channel: "parchment", version: "${mapping_version}-${minecraft_version}"
 
     copyIdeResources = true
 
@@ -77,12 +72,12 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     mavenLocal()
 
-    maven {
-        url = 'https://maven.minecraftforge.net/'
+    maven { 
+        url = 'https://maven.minecraftforge.net/' 
     }
 
-    maven {
-        url = 'https://www.cursemaven.com'
+    maven { 
+        url = 'https://www.cursemaven.com' 
     }
 
     maven {
@@ -94,12 +89,12 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // QOL mods
+    runtimeOnly fg.deobf("curse.maven:emi-580555:6420945")
+    runtimeOnly fg.deobf("curse.maven:cucumber-272335:6880321")
     runtimeOnly fg.deobf("curse.maven:catalogue-459701:4766090")
     runtimeOnly fg.deobf("curse.maven:configured-457570:5180900")
-    runtimeOnly fg.deobf("curse.maven:cucumber-272335:7180783")
-    runtimeOnly fg.deobf("curse.maven:emi-580555:6420945")
 
-    implementation fg.deobf("com.redcraft86.lanternlib:LanternLib:${minecraft_version}-${lanternlib_version}")
+    implementation fg.deobf("com.redcraft86.lanternlib:${minecraft_version}:${lanternlib_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
@@ -120,7 +115,6 @@ tasks.named('processResources', ProcessResources).configure {
             mod_authors                 : mod_authors,
             mod_description             : mod_description,
             mod_credits                 : mod_credits
-            // Add more here if adding/linking things like dependency versions to gradle.properties and mods.toml
     ]
     inputs.properties replaceProperties
 
@@ -145,6 +139,7 @@ tasks.named('jar', Jar).configure {
     finalizedBy 'reobfJar'
 }
 
+// Local publish: ./gradlew publishToMavenLocal
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
@@ -152,7 +147,9 @@ publishing {
         }
     }
     repositories {
-        mavenLocal()
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
     }
 }
 
