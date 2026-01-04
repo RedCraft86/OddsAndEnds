@@ -1,15 +1,25 @@
 package com.redcraft86.oddsandends.configs;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import java.util.List;
+
+import com.redcraft86.oddsandends.client.*;
+
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class ClientCfg {
-    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-//    public static final ForgeConfigSpec.BooleanValue EXAMPLE_CFG = BUILDER
-//            .comment("This is an example config")
-//            .define("exampleCfg", true);
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> STARTUP_SOUNDS;
 
-    public static final ForgeConfigSpec SPEC = BUILDER.build();
+    static {
+        STARTUP_SOUNDS = BUILDER.comment("A random sound from this list will be played when first entering the title screen.")
+                .comment("Leave empty to disable. Format: \"sound_id volume\"")
+                .defineListAllowEmpty("startupSounds",
+                        List.of("minecraft:entity.experience_orb.pickup 0.7", "minecraft:entity.player.levelup 0.3"),
+                                () -> "", StartupSound::validateEntry);
+    }
+
+    public static final ModConfigSpec SPEC = BUILDER.build();
 
     public static boolean isLoaded() { return SPEC.isLoaded(); }
 }
