@@ -2,6 +2,12 @@ modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
 
+[[mixins]]
+    config="${mod_id}.mixins.json"
+
+[[accessTransformers]]
+    file="META-INF/accesstransformer.cfg"
+
 [[mods]]
     modId="${mod_id}"
     version="${mod_version}"
@@ -12,12 +18,6 @@ license="${mod_license}"
     displayURL="https://github.com/RedCraft86/${repo_name}"
     issueTrackerURL="https://github.com/RedCraft86/${repo_name}/issues"
     logoFile="${mod_id}_icon.png"
-
-[[accessTransformers]]
-    file="META-INF/accesstransformer.cfg"
-
-[[mixins]]
-    config="${mod_id}.mixins.json"
 
 [[dependencies.${mod_id}]]
     modId="neoforge"
