@@ -10,6 +10,7 @@
   },
   "mixins": [
     "common.MixinEnchantment",
+    "common.MixinPrimaryLevelData",
     "common.MixinTemptGoal"
   ]
 }
