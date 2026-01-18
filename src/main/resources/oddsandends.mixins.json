@@ -10,6 +10,7 @@
   },
   "mixins": [
     "common.MixinEnchantment",
+    "common.MixinIBlockExtension",
     "common.MixinPortalShape",
     "common.MixinPrimaryLevelData",
     "common.MixinTemptGoal"
