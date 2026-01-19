@@ -1,5 +1,6 @@
 package com.redcraft86.oddsandends.mixin.common;
 
+import com.redcraft86.oddsandends.configs.CommonCfg;
 import com.redcraft86.oddsandends.common.features.ShapelessPortal;
 
 import net.minecraft.core.BlockPos;
@@ -7,7 +8,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.portal.PortalShape;
 
-import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -15,11 +17,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PortalShape.class)
 public class MixinPortalShape {
-    @Unique private ShapelessPortal portal;
+    @Unique
+    private ShapelessPortal portal;
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void PortalShape(LevelAccessor level, BlockPos bottomLeft, Direction.Axis axis, CallbackInfo ci) {
-        if (portal == null) { // TODO: config
+        if (portal == null && CommonCfg.SHAPELESS_NETHER_PORTALS.get()) {
             portal = new ShapelessPortal(level, bottomLeft, axis);
         }
     }

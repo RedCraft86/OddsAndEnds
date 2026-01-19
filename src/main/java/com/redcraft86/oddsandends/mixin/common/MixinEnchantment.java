@@ -1,5 +1,7 @@
 package com.redcraft86.oddsandends.mixin.common;
 
+import com.redcraft86.oddsandends.configs.CommonCfg;
+
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.enchantment.Enchantment;
 
@@ -12,6 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinEnchantment {
     @Inject(method = "areCompatible", at = @At("HEAD"), cancellable = true)
     private static void checkCompatibility(Holder<Enchantment> a, Holder<Enchantment> b, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(true); // TODO: config
+        if (CommonCfg.MIX_ENCHANTMENTS.get()) {
+            cir.setReturnValue(true);
+        }
     }
 }

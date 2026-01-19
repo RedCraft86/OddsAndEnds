@@ -1,5 +1,6 @@
 package com.redcraft86.oddsandends.mixin.common;
 
+import com.redcraft86.oddsandends.configs.CommonCfg;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,6 +15,8 @@ public class MixinTemptGoal {
 
     @Inject(method = "stop", at = @At("TAIL"))
     private void onStop(CallbackInfo ci) {
-        calmDown = 0; // TODO: config
+        if (CommonCfg.NO_TEMPT_COOLDOWN.get()) {
+            calmDown = 0;
+        }
     }
 }
