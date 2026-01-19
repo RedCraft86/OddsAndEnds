@@ -12,7 +12,7 @@ public class ClientCfg {
 
     static {
         STARTUP_SOUNDS = BUILDER.comment("List sounds to choose from when playing a sound at startup.")
-                .comment("Empty to disable. Format entries as \"namespace:path volume\"")
+                .comment("Empty to disable. Format entries as \"sound_id volume\"")
                 .defineListAllowEmpty("startupSounds",
                     List.of("minecraft:entity.experience_orb.pickup 0.7", "minecraft:entity.player.levelup 0.3"),
                     () -> "", StartupSound::validateEntry
