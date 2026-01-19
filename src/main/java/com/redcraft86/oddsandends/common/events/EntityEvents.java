@@ -21,6 +21,8 @@ public class EntityEvents {
         if (level.isClientSide() || target.getLastDamageSource() == null) {
             return;
         }
+
+        // TODO: noAttackCooldown
     }
 
     @SubscribeEvent
@@ -31,7 +33,7 @@ public class EntityEvents {
             return;
         }
 
-        // TODO: noAttackCooldown
+        // TODO: softer leaves
     }
 
     @SubscribeEvent
