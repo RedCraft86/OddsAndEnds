@@ -33,9 +33,9 @@ public class SpawnStructure {
     public static boolean isLocating() { return locateTarget != null && !locateTarget.isBlank(); }
 
     @SubscribeEvent(receiveCanceled = true)
-    static void onCreateSpawn(LevelEvent.CreateSpawnPosition e) {
-        if (findStructure(e.getLevel())) {
-            e.setCanceled(true);
+    static void onCreateSpawn(LevelEvent.CreateSpawnPosition event) {
+        if (findStructure(event.getLevel())) {
+            event.setCanceled(true);
         }
     }
 
