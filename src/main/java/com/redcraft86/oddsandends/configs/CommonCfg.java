@@ -44,7 +44,7 @@ public class CommonCfg {
         NO_FRIENDLY_FIRE = BUILDER.comment("Prevents players from hitting tamed mobs.")
                 .define("noFriendlyFire", true);
 
-        NO_VILLAGER_HIT = BUILDER.comment("Prevents players from hitting villagers unless holding a tool.")
+        NO_VILLAGER_HIT = BUILDER.comment("Prevents players from hitting villagers with an empty hand.")
                 .define("noVillagerHit", true);
 
         NO_TEMPT_COOLDOWN = BUILDER.comment("Prevents breedable mobs from losing interest and entering cooldown in food items.")
