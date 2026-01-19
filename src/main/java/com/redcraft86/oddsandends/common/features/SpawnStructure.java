@@ -1,6 +1,11 @@
 package com.redcraft86.oddsandends.common.features;
 
 import java.util.*;
+
+import com.redcraft86.oddsandends.OddsAndEnds;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.level.LevelEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import com.mojang.datafixers.util.Pair;
@@ -19,6 +24,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 
+@EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
 public class SpawnStructure {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static String locateTarget = null;
@@ -26,7 +32,14 @@ public class SpawnStructure {
     public static String getLocateTarget() { return locateTarget; }
     public static boolean isLocating() { return locateTarget != null && !locateTarget.isBlank(); }
 
-    public static boolean handle(LevelAccessor levelAccessor) {
+    @SubscribeEvent(receiveCanceled = true)
+    static void onCreateSpawn(LevelEvent.CreateSpawnPosition e) {
+        if (findStructure(e.getLevel())) {
+            e.setCanceled(true);
+        }
+    }
+
+    public static boolean findStructure(LevelAccessor levelAccessor) {
         if (levelAccessor.isClientSide()) {
             return false;
         }
