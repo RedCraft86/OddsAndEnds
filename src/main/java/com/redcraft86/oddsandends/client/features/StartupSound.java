@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.redcraft86.oddsandends.OddsAndEnds;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ScreenEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import com.mojang.datafixers.util.Pair;
@@ -19,13 +24,15 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 
+@EventBusSubscriber(modid = OddsAndEnds.MOD_ID, value = Dist.CLIENT)
 public class StartupSound {
     private static final Random RANDOM = new Random();
     private static final Logger LOGGER = LogUtils.getLogger();
     private static boolean bPlayed = false;
 
-    public static void handle(Screen screen) {
-        if (bPlayed || !(screen instanceof TitleScreen)) {
+    @SubscribeEvent
+    static void onScreenOpen(ScreenEvent.Opening event) {
+        if (bPlayed || !(event.getScreen() instanceof TitleScreen)) {
             return;
         }
 
