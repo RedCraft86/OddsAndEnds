@@ -14,10 +14,9 @@ import com.mojang.logging.LogUtils;
 import com.mojang.datafixers.util.Pair;
 
 import com.redcraft86.oddsandends.configs.ClientCfg;
-import com.redcraft86.lanternlib.util.ValidationUtils;
+import com.redcraft86.lanternlib.configs.ValidationUtils;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.registries.BuiltInRegistries;

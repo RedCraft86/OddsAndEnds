@@ -2,7 +2,7 @@ package com.redcraft86.oddsandends.configs;
 
 import java.util.List;
 
-import com.redcraft86.lanternlib.util.ValidationUtils;
+import com.redcraft86.lanternlib.configs.ValidationUtils;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class CommonCfg {
