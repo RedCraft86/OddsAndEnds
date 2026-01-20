@@ -81,7 +81,7 @@ public class CommonCfg {
                 .define("dirtToGrass", true);
 
         BUILDER.comment("Makes campfires give effects to nearby players");
-        BUILDER.push("campfire");
+        BUILDER.push("cozyCampfires");
         CAMPFIRE_RANGE = BUILDER.comment("The radius (in blocks) around the campfire to give effects. Set 0 to disable.")
                 .defineInRange("range", 3, 0, 8);
 
@@ -91,7 +91,7 @@ public class CommonCfg {
         CAMPFIRE_CLEAR_DEBUFFS = BUILDER.comment("Whether debuffs should be cleared around campfires.")
                 .define("clearDebuffs", true);
 
-        CAMPFIRE_EFFECTS = BUILDER.comment("Positive effects to give around campfires. (Requires world reload)")
+        CAMPFIRE_EFFECTS = BUILDER.comment("Effects to give around campfires. (Requires world reload)")
                 .comment("Can be empty. Format as \"effect_id level\" (Level Range: 1 ~ 256)")
                 .defineListAllowEmpty("grantEffects", 
                         List.of("minecraft:regeneration 1", "minecraft:saturation 1"),

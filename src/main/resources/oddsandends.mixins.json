@@ -9,6 +9,7 @@
     "requireAnnotations": true
   },
   "mixins": [
+    "common.MixinCampfireBlockEntity",
     "common.MixinEnchantment",
     "common.MixinIBlockExtension",
     "common.MixinPortalShape",
