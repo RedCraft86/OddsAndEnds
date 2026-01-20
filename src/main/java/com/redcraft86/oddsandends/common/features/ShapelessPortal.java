@@ -101,7 +101,7 @@ public class ShapelessPortal {
         }
 
         return switch (axis) {
-            case Direction.Axis.X, Direction.Axis.Z -> max.getY() - min.getY();
+            case X, Z -> max.getY() - min.getY();
             default -> 0;
         };
     }
@@ -112,8 +112,8 @@ public class ShapelessPortal {
         }
 
         return switch (axis) {
-            case Direction.Axis.X -> max.getX() - min.getX();
-            case Direction.Axis.Z -> max.getZ() - min.getZ();
+            case X -> max.getX() - min.getX();
+            case Z -> max.getZ() - min.getZ();
             default -> 0;
         };
     }
