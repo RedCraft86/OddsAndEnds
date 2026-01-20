@@ -3,16 +3,11 @@ package com.redcraft86.oddsandends.client.features;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
-
-import com.redcraft86.oddsandends.OddsAndEnds;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ScreenEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import com.mojang.datafixers.util.Pair;
 
+import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.configs.ClientCfg;
 import com.redcraft86.lanternlib.utils.ValidationUtils;
 
@@ -22,6 +17,11 @@ import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ScreenEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID, value = Dist.CLIENT)
 public class StartupSound {

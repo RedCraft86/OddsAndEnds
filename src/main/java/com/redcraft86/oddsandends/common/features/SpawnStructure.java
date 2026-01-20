@@ -1,15 +1,11 @@
 package com.redcraft86.oddsandends.common.features;
 
 import java.util.*;
-
-import com.redcraft86.oddsandends.OddsAndEnds;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.level.LevelEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import com.mojang.datafixers.util.Pair;
 
+import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.configs.CommonCfg;
 
 import net.minecraft.core.Holder;
@@ -23,6 +19,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
+
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.level.LevelEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
 public class SpawnStructure {
