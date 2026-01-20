@@ -27,6 +27,7 @@ public class CommonCfg {
     public static final ModConfigSpec.BooleanValue BONEMEAL_DIRT_TO_GRASS;
     public static final ModConfigSpec.IntValue CAMPFIRE_RANGE;
     public static final ModConfigSpec.EnumValue<CozyCampfire.CampfireType> CAMPFIRE_TYPE;
+    public static final ModConfigSpec.BooleanValue CAMPFIRE_REPEL_HOSTILES;
     public static final ModConfigSpec.BooleanValue CAMPFIRE_CLEAR_DEBUFFS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> CAMPFIRE_EFFECTS;
 
@@ -85,11 +86,15 @@ public class CommonCfg {
         BUILDER.comment("Makes campfires give effects to nearby players");
         BUILDER.push("cozyCampfires");
         CAMPFIRE_RANGE = BUILDER.comment("The radius (in blocks) around the campfire to give effects. Set 0 to disable.")
-                .defineInRange("range", 3, 0, 8);
+                .defineInRange("range", 5, 0, 16);
 
         CAMPFIRE_TYPE = BUILDER.comment("The type of campfire that will provide the player with effects.")
                 .comment("REGULAR: Normal Campfires\nSOULFIRE: Soul Campfires\nANY: Any campfire block that uses CampfireBlockEntity")
                 .defineEnum("campfireType", CozyCampfire.CampfireType.SOULFIRE);
+
+        CAMPFIRE_REPEL_HOSTILES = BUILDER.comment("Whether hostiles should be slowed, weakened, and burned around campfires.")
+                .comment("NOTE: This option does not affect bosses, they will not be repelled.")
+                .define("repelHostiles", true);
 
         CAMPFIRE_CLEAR_DEBUFFS = BUILDER.comment("Whether debuffs should be cleared around campfires.")
                 .define("clearDebuffs", true);
@@ -98,7 +103,7 @@ public class CommonCfg {
                 .comment("Can be empty. Format as \"effect_id level\" (Level Range: 1 ~ 256)")
                 .defineListAllowEmpty("grantEffects", 
                         List.of("minecraft:regeneration 1", "minecraft:saturation 1"),
-                        () -> "", ValidationUtils::isResourceLocOrTag);
+                        () -> "", CozyCampfire::validateEntry);
         BUILDER.pop();
 
         BUILDER.pop();
