@@ -7,6 +7,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
 public class CozyCampfire {
+    public enum CampfireType {
+        REGULAR, SOULFIRE, ANY
+    }
+
     private static final Logger LOGGER = LogUtils.getLogger();
 
     // TODO: feature

@@ -3,6 +3,8 @@ package com.redcraft86.oddsandends.configs;
 import java.util.List;
 
 import com.redcraft86.lanternlib.utils.ValidationUtils;
+import com.redcraft86.oddsandends.common.features.CozyCampfire;
+
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class CommonCfg {
@@ -24,7 +26,7 @@ public class CommonCfg {
     public static final ModConfigSpec.BooleanValue SHAPELESS_NETHER_PORTALS;
     public static final ModConfigSpec.BooleanValue BONEMEAL_DIRT_TO_GRASS;
     public static final ModConfigSpec.IntValue CAMPFIRE_RANGE;
-    public static final ModConfigSpec.BooleanValue CAMPFIRE_SOULFIRE;
+    public static final ModConfigSpec.EnumValue<CozyCampfire.CampfireType> CAMPFIRE_TYPE;
     public static final ModConfigSpec.BooleanValue CAMPFIRE_CLEAR_DEBUFFS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> CAMPFIRE_EFFECTS;
 
@@ -85,8 +87,9 @@ public class CommonCfg {
         CAMPFIRE_RANGE = BUILDER.comment("The radius (in blocks) around the campfire to give effects. Set 0 to disable.")
                 .defineInRange("range", 3, 0, 8);
 
-        CAMPFIRE_SOULFIRE = BUILDER.comment("Whether to use a Soul Campfire instead of a Campfire for this feature.")
-                .define("useSoulfire", true);
+        CAMPFIRE_TYPE = BUILDER.comment("The type of campfire that will provide the player with effects.")
+                .comment("REGULAR: Normal Campfires\nSOULFIRE: Soul Campfires\nANY: Any campfire block that uses CampfireBlockEntity")
+                .defineEnum("campfireType", CozyCampfire.CampfireType.SOULFIRE);
 
         CAMPFIRE_CLEAR_DEBUFFS = BUILDER.comment("Whether debuffs should be cleared around campfires.")
                 .define("clearDebuffs", true);

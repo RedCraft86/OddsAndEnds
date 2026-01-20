@@ -5,6 +5,7 @@ import com.redcraft86.oddsandends.common.features.CozyCampfire;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
@@ -18,7 +19,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinCampfireBlockEntity {
     @Inject(method = "cookTick", at = @At("HEAD"))
     private static void onCookTick(Level level, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, CallbackInfo ci) {
-        if (state.is(CommonCfg.CAMPFIRE_SOULFIRE.get() ? Blocks.SOUL_CAMPFIRE : Blocks.CAMPFIRE)) {
+        Block matchType = switch (CommonCfg.CAMPFIRE_TYPE.get()) {
+            case REGULAR -> Blocks.CAMPFIRE;
+            case SOULFIRE -> Blocks.SOUL_CAMPFIRE;
+            case ANY -> null;
+        };
+        if (matchType == null || state.is(matchType)) {
             CozyCampfire.applyEffects(level, pos);
         }
     }
