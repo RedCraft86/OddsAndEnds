@@ -14,7 +14,7 @@ import com.mojang.logging.LogUtils;
 import com.mojang.datafixers.util.Pair;
 
 import com.redcraft86.oddsandends.configs.ClientCfg;
-import com.redcraft86.lanternlib.configs.ValidationUtils;
+import com.redcraft86.lanternlib.utils.ValidationUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
