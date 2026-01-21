@@ -25,6 +25,7 @@ public class CommonCfg {
 
     public static final ModConfigSpec.BooleanValue SHAPELESS_NETHER_PORTALS;
     public static final ModConfigSpec.BooleanValue BONEMEAL_DIRT_TO_GRASS;
+
     public static final ModConfigSpec.IntValue CAMPFIRE_RANGE;
     public static final ModConfigSpec.EnumValue<CozyCampfire.CampfireType> CAMPFIRE_TYPE;
     public static final ModConfigSpec.BooleanValue CAMPFIRE_REPEL_HOSTILES;
@@ -32,6 +33,7 @@ public class CommonCfg {
     public static final ModConfigSpec.ConfigValue<List<? extends String>> CAMPFIRE_EFFECTS;
 
     static {
+        ///---ENCHANTMENTS---///
         BUILDER.push("enchantments");
 
         TRUE_INFINITY = BUILDER.comment("Makes infinity on bows work without needing at least one arrow.")
@@ -42,6 +44,9 @@ public class CommonCfg {
                 .define("mixEnchantments", true);
 
         BUILDER.pop();
+        ///~~~ENCHANTMENTS~~~///
+
+        ///---ENTITIES---///
         BUILDER.push("entities");
 
         NO_FRIENDLY_FIRE = BUILDER.comment("Prevents players from hitting tamed mobs.")
@@ -57,13 +62,18 @@ public class CommonCfg {
                 .define("infiniteTrades", true);
 
         BUILDER.pop();
+        ///~~~ENTITIES~~~///
+
+        ///---WORLD---///
         BUILDER.push("world");
 
         HIDE_EXPERIMENTAL_WARNING = BUILDER.comment("Hides the experimental warning when creating a modded world.")
                 .define("hideExperimentalWarning", true);
 
+        ///---WORLD/SpawnStructure---///
         BUILDER.comment("Locates specified structure(s) within a radius and sets the world spawn at or near them.");
         BUILDER.push("spawnStructure");
+
         SPAWN_STRUCTURE = BUILDER.comment("The structure to find and set the spawn at.")
                 .comment("Either an ID or a tag (prefixed by #). Empty to disable feature.")
                 .define("structure", "#oddsandends:spawn_structure",
@@ -71,9 +81,14 @@ public class CommonCfg {
 
         SPAWN_SEARCH_RADIUS = BUILDER.comment("The radius (in chunks) around 0, 0 that should be searched.")
                 .defineInRange("radius", 128, 32, 512);
-        BUILDER.pop();
 
         BUILDER.pop();
+        ///~~~WORLD/SpawnStructure~~~///
+
+        BUILDER.pop();
+        ///~~~WORLD~~~///
+
+        ///---MISC---///
         BUILDER.push("misc");
 
         SHAPELESS_NETHER_PORTALS = BUILDER.comment("Allows nether portals to be built in any shape.")
@@ -83,8 +98,10 @@ public class CommonCfg {
         BONEMEAL_DIRT_TO_GRASS = BUILDER.comment("Whether dirt blocks can be converted to grass blocks with bonemeal.")
                 .define("dirtToGrass", true);
 
+        ///---MISC/CozyCampfire---///
         BUILDER.comment("Makes campfires give effects to nearby players");
         BUILDER.push("cozyCampfires");
+
         CAMPFIRE_RANGE = BUILDER.comment("The radius (in blocks) around the campfire to give effects. Set 0 to disable.")
                 .defineInRange("range", 5, 0, 16);
 
@@ -104,9 +121,12 @@ public class CommonCfg {
                 .defineListAllowEmpty("grantEffects", 
                         List.of("minecraft:regeneration 1", "minecraft:saturation 1"),
                         () -> "", CozyCampfire::validateEntry);
-        BUILDER.pop();
 
         BUILDER.pop();
+        ///~~~MISC/CozyCampfire~~~///
+
+        BUILDER.pop();
+        ///~~~MISC~~~///
     }
 
     public static final ModConfigSpec SPEC = BUILDER.build();
