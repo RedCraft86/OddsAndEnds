@@ -17,6 +17,7 @@ public class CommonCfg {
     public static final ModConfigSpec.BooleanValue NO_VILLAGER_HIT;
     public static final ModConfigSpec.BooleanValue NO_TEMPT_COOLDOWN;
     public static final ModConfigSpec.BooleanValue INFINITE_TRADES;
+    public static final ModConfigSpec.BooleanValue PLAYER_FALL_DAMPEN;
 
     public static final ModConfigSpec.BooleanValue HIDE_EXPERIMENTAL_WARNING;
 
@@ -60,6 +61,10 @@ public class CommonCfg {
 
         INFINITE_TRADES = BUILDER.comment("Prevents villager trades from ever running out of stock.")
                 .define("infiniteTrades", true);
+
+        PLAYER_FALL_DAMPEN = BUILDER.comment("Dampens player fall damage by 80% on Hay Bales and Leaves.")
+                .comment("Tag a block with 'oddsandends:dampen_fall_damage' to add more blocks.")
+                .define("dampenPlayerFall", true);
 
         BUILDER.pop();
         ///~~~ENTITIES~~~///

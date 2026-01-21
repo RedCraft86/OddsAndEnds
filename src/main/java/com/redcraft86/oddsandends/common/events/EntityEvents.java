@@ -27,13 +27,13 @@ public class EntityEvents {
 
     @SubscribeEvent
     public static void onFall(LivingFallEvent event) {
-        LivingEntity target = event.getEntity();
-        Level level = target.level();
+        LivingEntity entity = event.getEntity();
+        Level level = entity.level();
         if (level.isClientSide()) {
             return;
         }
 
-        // TODO: softer leaves
+        event.setDamageMultiplier(CommonTweaks.handlePlayerFall(level, entity));
     }
 
     @SubscribeEvent

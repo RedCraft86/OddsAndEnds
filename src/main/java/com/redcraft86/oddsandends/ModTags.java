@@ -8,6 +8,9 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> DAMPEN_FALL_DAMAGE = TagKey.create(Registries.BLOCK,
+                ResourceLocation.fromNamespaceAndPath(OddsAndEnds.MOD_ID, "dampen_fall_damage"));
+
         public static final TagKey<Block> NETHER_PORTAL_FRAME = TagKey.create(Registries.BLOCK,
                 ResourceLocation.parse("minecraft:nether_portal_frame"));
     }
