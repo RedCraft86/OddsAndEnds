@@ -1,7 +1,8 @@
 {
-	"texture_size": [64, 64],
+	"__comment": "Designed by RedCraft86 with Blockbench - https://www.blockbench.net/",
+	"texture_size": [32, 32],
 	"textures": {
-		"1": "oddsandends:block/rainbow_beacon",
+		"texture": "oddsandends:block/rainbow_beacon",
 		"particle": "oddsandends:block/rainbow_beacon"
 	},
 	"elements": [
@@ -9,12 +10,12 @@
 			"from": [0, 0, 0],
 			"to": [16, 8, 16],
 			"faces": {
-				"north": {"uv": [8, 0, 16, 4], "texture": "#1"},
-				"east": {"uv": [8, 0, 16, 4], "texture": "#1"},
-				"south": {"uv": [8, 0, 16, 4], "texture": "#1"},
-				"west": {"uv": [8, 0, 16, 4], "texture": "#1"},
-				"up": {"uv": [0, 0, 8, 8], "texture": "#1"},
-				"down": {"uv": [0, 8, 8, 16], "texture": "#1"}
+				"north": {"uv": [8, 0, 16, 4], "texture": "#texture"},
+				"east": {"uv": [8, 0, 16, 4], "texture": "#texture"},
+				"south": {"uv": [8, 0, 16, 4], "texture": "#texture"},
+				"west": {"uv": [8, 0, 16, 4], "texture": "#texture"},
+				"up": {"uv": [0, 0, 8, 8], "texture": "#texture"},
+				"down": {"uv": [0, 8, 8, 16], "texture": "#texture"}
 			}
 		},
 		{
@@ -22,12 +23,12 @@
 			"to": [13, 10, 13],
 			"rotation": {"angle": 0, "axis": "y", "origin": [3, 8, 3]},
 			"faces": {
-				"north": {"uv": [8.5, 5, 15.5, 6.5], "texture": "#1"},
-				"east": {"uv": [8.5, 4, 15.5, 5.5], "texture": "#1"},
-				"south": {"uv": [8.5, 7, 15.5, 8.5], "texture": "#1"},
-				"west": {"uv": [8.5, 4.5, 15.5, 6], "texture": "#1"},
-				"up": {"uv": [8, 9, 15, 16], "texture": "#1"},
-				"down": {"cullface": "down", "texture": "#1"}
+				"north": {"uv": [8.5, 5, 15.5, 6.5], "texture": "#texture"},
+				"east": {"uv": [8.5, 4, 15.5, 5.5], "texture": "#texture"},
+				"south": {"uv": [8.5, 7, 15.5, 8.5], "texture": "#texture"},
+				"west": {"uv": [8.5, 4.5, 15.5, 6], "texture": "#texture"},
+				"up": {"uv": [8, 9, 15, 16], "texture": "#texture"},
+				"down": {"cullface": "down", "texture": "#texture"}
 			}
 		}
 	],
