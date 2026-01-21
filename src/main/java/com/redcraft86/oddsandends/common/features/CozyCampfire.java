@@ -43,8 +43,8 @@ public class CozyCampfire {
     public static Set<Holder<MobEffect>> hostileEffects = new HashSet<>();
 
     @SubscribeEvent
-    static void onServerStart(LevelEvent.Load e) {
-        if (!e.getLevel().isClientSide()) {
+    static void onServerStart(LevelEvent.Load event) {
+        if (!event.getLevel().isClientSide()) {
             generateEffectList();
         }
     }
