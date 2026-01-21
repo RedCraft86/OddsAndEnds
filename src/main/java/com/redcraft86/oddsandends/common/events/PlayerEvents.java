@@ -52,7 +52,7 @@ public class PlayerEvents {
 
         boolean bHandled = false;
         if (event.getHand() == InteractionHand.MAIN_HAND) {
-            CommonTweaks.handleTrades(level, player, target, item);
+            CommonTweaks.handleTrades(target);
         }
 
         if (bHandled) {

@@ -30,7 +30,7 @@ public class CommonTweaks {
         return true;
     }
 
-    public static void handleTrades(Level level, Player player, Entity target, ItemStack item) {
+    public static void handleTrades(Entity target) {
         if (CommonCfg.INFINITE_TRADES.get() && target instanceof AbstractVillager villager) {
             for (MerchantOffer offer : villager.getOffers()) {
                 offer.maxUses = Integer.MAX_VALUE;
