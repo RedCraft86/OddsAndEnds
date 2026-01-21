@@ -23,6 +23,8 @@ public class OddsAndEnds {
         NeoForge.EVENT_BUS.register(this);
 
         ModGameRules.registerRules();
+        ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.CLIENT, ClientCfg.SPEC);
         modContainer.registerConfig(ModConfig.Type.COMMON, CommonCfg.SPEC);
