@@ -1,10 +1,12 @@
 package com.redcraft86.oddsandends.common.events;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
+import com.redcraft86.oddsandends.common.registries.ModGameRules;
 import com.redcraft86.oddsandends.common.features.CommonTweaks;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.damagesource.DamageTypes;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -22,7 +24,11 @@ public class EntityEvents {
             return;
         }
 
-        // TODO: noAttackCooldown
+        if (level.getGameRules().getBoolean(ModGameRules.NO_ATK_COOLDOWN)
+            && target.getLastDamageSource().is(DamageTypes.PLAYER_ATTACK)) {
+
+            target.invulnerableTime = 0;
+        }
     }
 
     @SubscribeEvent

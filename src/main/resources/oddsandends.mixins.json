@@ -12,6 +12,7 @@
     "common.MixinCampfireBlockEntity",
     "common.MixinEnchantment",
     "common.MixinIBlockExtension",
+    "common.MixinPlayer",
     "common.MixinPortalShape",
     "common.MixinPrimaryLevelData",
     "common.MixinTemptGoal"

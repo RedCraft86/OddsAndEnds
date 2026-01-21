@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import com.redcraft86.oddsandends.configs.*;
+import com.redcraft86.oddsandends.common.registries.*;
 
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
@@ -20,6 +21,8 @@ public class OddsAndEnds {
 
     public OddsAndEnds(IEventBus modEventBus, ModContainer modContainer) {
         NeoForge.EVENT_BUS.register(this);
+
+        ModGameRules.registerRules();
 
         modContainer.registerConfig(ModConfig.Type.CLIENT, ClientCfg.SPEC);
         modContainer.registerConfig(ModConfig.Type.COMMON, CommonCfg.SPEC);
