@@ -16,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.server.level.ServerLevel;
 
-import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.entity.living.LivingGetProjectileEvent;
 
 public class CommonTweaks {
@@ -55,11 +54,11 @@ public class CommonTweaks {
     }
 
     public static float handlePlayerFall(Level level, LivingEntity entity) {
-        if (!CommonCfg.PLAYER_FALL_DAMPEN.get()) {
-            return 1.0f;
+        if (CommonCfg.PLAYER_FALL_DAMPEN.get() && entity instanceof Player) {
+            BlockPos belowPos = entity.blockPosition().below();
+            return level.getBlockState(belowPos).is(ModTags.Blocks.DAMPEN_FALL_DAMAGE) ? 0.2f : 1.0f;
         }
-        BlockState blockBelow = level.getBlockState(entity.blockPosition().below());
-        return (blockBelow.is(ModTags.Blocks.DAMPEN_FALL_DAMAGE) && entity instanceof Player) ? 0.2f : 1.0f;
+        return 1.0f;
     }
 
     public static void handleTrueInfinity(final LivingGetProjectileEvent event) {
