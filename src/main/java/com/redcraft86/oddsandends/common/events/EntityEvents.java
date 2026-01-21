@@ -32,7 +32,7 @@ public class EntityEvents {
     }
 
     @SubscribeEvent
-    public static void onFall(LivingFallEvent event) {
+    public static void onFallDamage(LivingFallEvent event) {
         LivingEntity entity = event.getEntity();
         Level level = entity.level();
         if (level.isClientSide()) {
