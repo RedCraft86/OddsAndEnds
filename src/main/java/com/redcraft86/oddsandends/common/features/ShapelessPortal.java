@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
- * Code partially adapted from BetterNether (Fabric Mod) which is under the MIT license:
+ * Partially adapted from BetterNether (Fabric Mod) which is under the MIT license:
  * <a href="https://github.com/quiqueck/BetterNether/blob/1.21/src/main/java/org/betterx/betternether/portals/BNPortalShape.java">Src</a>
  */
 public class ShapelessPortal {
