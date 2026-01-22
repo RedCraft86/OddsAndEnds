@@ -105,7 +105,6 @@ public class CommonCfg {
 
         ///---MISC/CozyCampfire---///
         BUILDER.comment("Makes campfires give effects to nearby players.");
-        BUILDER.comment("If Lithium is installed, add 'mixin.world.block_entity_ticking.sleeping.campfire.lit=false' to lithium.properties");
         BUILDER.push("cozyCampfires");
 
         CAMPFIRE_RANGE = BUILDER.comment("The radius (in blocks) around the campfire to give effects. Set 0 to disable.")

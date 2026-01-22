@@ -42,3 +42,6 @@ license="${mod_license}"
 
 [modproperties.${mod_id}]
     catalogueImageIcon="${mod_id}_icon.png"
+
+["lithium:options"]
+    "mixin.world.block_entity_ticking.sleeping.campfire.lit"=false
