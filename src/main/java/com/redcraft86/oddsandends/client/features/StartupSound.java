@@ -24,7 +24,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID, value = Dist.CLIENT)
-public class StartupSound {
+public final class StartupSound {
     private static final Random RANDOM = new Random();
     private static final Logger LOGGER = LogUtils.getLogger();
     private static boolean bPlayed = false;

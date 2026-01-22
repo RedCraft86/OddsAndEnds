@@ -31,7 +31,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
-public class CozyCampfire {
+public final class CozyCampfire {
     public enum CampfireType {
         REGULAR, SOULFIRE, ANY
     }

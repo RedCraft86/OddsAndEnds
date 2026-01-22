@@ -15,7 +15,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
-public class MiscTweaks {
+public final class MiscTweaks {
     @SubscribeEvent
     static void handleBonemeal(PlayerInteractEvent.RightClickBlock event) {
         Level level = event.getLevel();

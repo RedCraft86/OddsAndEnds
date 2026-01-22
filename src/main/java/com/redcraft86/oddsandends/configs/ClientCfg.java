@@ -5,7 +5,7 @@ import java.util.List;
 import com.redcraft86.oddsandends.client.features.StartupSound;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-public class ClientCfg {
+public final class ClientCfg {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.ConfigValue<List<? extends String>> STARTUP_SOUNDS;

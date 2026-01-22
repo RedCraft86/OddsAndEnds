@@ -25,7 +25,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
-public class SpawnStructure {
+public final class SpawnStructure {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static String locateTarget = null;
 

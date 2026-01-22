@@ -7,7 +7,7 @@ import com.redcraft86.oddsandends.common.features.CozyCampfire;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-public class CommonCfg {
+public final class CommonCfg {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.BooleanValue TRUE_INFINITY;

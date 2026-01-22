@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * Partially adapted from BetterNether (Fabric Mod) which is under the MIT license.
  * <a href="https://github.com/quiqueck/BetterNether/blob/1.21/src/main/java/org/betterx/betternether/portals/BNPortalShape.java">Src</a>
  */
-public class ShapelessPortal {
+public final class ShapelessPortal {
     private static final int MAX_SEARCH_DIST = 32;
     private static final Direction[] DIR_X = {Direction.UP, Direction.DOWN, Direction.EAST, Direction.WEST};
     private static final Direction[] DIR_Z = {Direction.UP, Direction.DOWN, Direction.NORTH, Direction.SOUTH};

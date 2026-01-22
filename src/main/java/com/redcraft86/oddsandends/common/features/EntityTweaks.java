@@ -16,7 +16,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
-public class EntityTweaks {
+public final class EntityTweaks {
     @SubscribeEvent
     static void handleTrades(PlayerInteractEvent.EntityInteract event) {
         Level level = event.getLevel();

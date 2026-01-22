@@ -24,7 +24,7 @@ import net.neoforged.neoforge.event.entity.living.LivingGetProjectileEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
-public class PlayerTweaks {
+public final class PlayerTweaks {
     @SubscribeEvent
     static void handlePlayerAttack(AttackEntityEvent event) {
         Entity target = event.getTarget();

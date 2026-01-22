@@ -15,7 +15,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.IEventBus;
 
 @Mod(OddsAndEnds.MOD_ID)
-public class OddsAndEnds {
+public final class OddsAndEnds {
     public static final String MOD_ID = "oddsandends";
     public static final Logger LOGGER = LogUtils.getLogger();
 
