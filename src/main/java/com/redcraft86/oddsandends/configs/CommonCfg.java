@@ -56,7 +56,7 @@ public final class CommonCfg {
         NO_VILLAGER_HIT = BUILDER.comment("Prevents players from hitting villagers with an empty hand.")
                 .define("noVillagerHit", true);
 
-        NO_TEMPT_COOLDOWN = BUILDER.comment("Prevents breedable mobs from losing interest and entering cooldown in food items.")
+        NO_TEMPT_COOLDOWN = BUILDER.comment("Prevents breedable mobs from entering a cooldown after losing interest in food items.")
                 .define("noTemptCooldown", true);
 
         INFINITE_TRADES = BUILDER.comment("Prevents villager trades from ever running out of stock.")
