@@ -62,7 +62,7 @@ public final class CommonCfg {
         INFINITE_TRADES = BUILDER.comment("Prevents villager trades from ever running out of stock.")
                 .define("infiniteTrades", true);
 
-        PLAYER_FALL_DAMPEN = BUILDER.comment("Dampens player fall damage by 80% on Hay Bales and Leaves.")
+        PLAYER_FALL_DAMPEN = BUILDER.comment("Reduces player fall damage by 80% on Hay Bales and Leaves.")
                 .comment("Tag a block with 'oddsandends:dampen_fall_damage' to add more blocks.")
                 .define("dampenPlayerFall", true);
 
