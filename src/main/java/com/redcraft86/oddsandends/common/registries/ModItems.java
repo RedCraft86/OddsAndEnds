@@ -1,7 +1,7 @@
 package com.redcraft86.oddsandends.common.registries;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
-import com.redcraft86.lanternlib.common.items.ItemRegister;
+import com.redcraft86.lanternlib.api.items.ItemRegister;
 
 import net.minecraft.world.item.CreativeModeTabs;
 

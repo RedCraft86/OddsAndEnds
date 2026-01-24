@@ -2,7 +2,7 @@ package com.redcraft86.oddsandends.common.registries;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.common.blocks.*;
-import com.redcraft86.lanternlib.common.blocks.BlockRegister;
+import com.redcraft86.lanternlib.api.blocks.BlockRegister;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.CreativeModeTabs;

@@ -3,7 +3,7 @@ package com.redcraft86.oddsandends.common.blocks;
 import java.util.List;
 import net.minecraft.util.Mth;
 
-import com.redcraft86.lanternlib.common.blocks.ModBlock;
+import com.redcraft86.lanternlib.api.blocks.ModBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
