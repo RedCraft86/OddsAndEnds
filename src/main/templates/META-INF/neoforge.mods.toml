@@ -36,7 +36,7 @@ license="${mod_license}"
 [[dependencies.${mod_id}]]
     modId="lanternlib"
     type="required"
-    versionRange="[${lanternlib_version}]"
+    versionRange="${lanternlib_version_range}"
     ordering="AFTER"
     side="BOTH"
 

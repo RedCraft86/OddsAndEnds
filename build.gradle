@@ -74,7 +74,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             neoforge_version_range      : neoforge_version_range,
             loader_version_range        : loader_version_range,
 
-            lanternlib_version          : lanternlib_version,
+            lanternlib_version_range    : lanternlib_version_range,
 
             mod_id                      : mod_id,
             mod_name                    : mod_name,
