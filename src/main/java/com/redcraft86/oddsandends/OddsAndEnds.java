@@ -6,13 +6,14 @@ import com.mojang.logging.LogUtils;
 import com.redcraft86.oddsandends.configs.*;
 import com.redcraft86.oddsandends.common.registries.*;
 
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.config.ModConfig;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
 
 @Mod(OddsAndEnds.MOD_ID)
 public final class OddsAndEnds {
@@ -23,11 +24,17 @@ public final class OddsAndEnds {
         NeoForge.EVENT_BUS.register(this);
 
         ModRules.registerGameRules();
-        ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.CLIENT, ClientCfg.SPEC);
         modContainer.registerConfig(ModConfig.Type.COMMON, CommonCfg.SPEC);
+    }
+
+    @SubscribeEvent
+    public void onCreativeMode(BuildCreativeModeTabContentsEvent event) {
+        ModItems.ITEMS.addCreative(event);
+        ModBlocks.BLOCKS.addCreative(event);
     }
 
     @SubscribeEvent
