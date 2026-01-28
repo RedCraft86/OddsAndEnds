@@ -1,6 +1,6 @@
 package com.redcraft86.oddsandends.mixin.common;
 
-import com.redcraft86.oddsandends.common.registries.ModGameRules;
+import com.redcraft86.oddsandends.common.registries.ModRules;
 import net.minecraft.world.entity.player.Player;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,14 +17,14 @@ public class MixinPlayer {
 
     @Inject(method = "resetAttackStrengthTicker", at = @At("HEAD"), cancellable = true)
     public void cancelStrengthTicker(CallbackInfo ci) {
-        if (thisObj.level().getGameRules().getBoolean(ModGameRules.NO_ATK_COOLDOWN)) {
+        if (thisObj.level().getGameRules().getBoolean(ModRules.NO_ATK_COOLDOWN)) {
             ci.cancel();
         }
     }
 
     @Inject(method = "getAttackStrengthScale", at = @At("HEAD"), cancellable = true)
     public void getMaxAtkStrength(float adjustTicks, CallbackInfoReturnable<Float> cir) {
-        if (thisObj.level().getGameRules().getBoolean(ModGameRules.NO_ATK_COOLDOWN)) {
+        if (thisObj.level().getGameRules().getBoolean(ModRules.NO_ATK_COOLDOWN)) {
             cir.setReturnValue(1.0f);
         }
     }

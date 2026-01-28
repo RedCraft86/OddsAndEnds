@@ -22,7 +22,7 @@ public final class OddsAndEnds {
     public OddsAndEnds(IEventBus modEventBus, ModContainer modContainer) {
         NeoForge.EVENT_BUS.register(this);
 
-        ModGameRules.registerRules();
+        ModRules.registerGameRules();
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
 

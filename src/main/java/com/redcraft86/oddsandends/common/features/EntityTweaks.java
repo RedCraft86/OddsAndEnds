@@ -1,7 +1,7 @@
 package com.redcraft86.oddsandends.common.features;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
-import com.redcraft86.oddsandends.common.registries.ModGameRules;
+import com.redcraft86.oddsandends.common.registries.ModRules;
 import com.redcraft86.oddsandends.configs.CommonCfg;
 
 import net.minecraft.world.level.Level;
@@ -40,7 +40,7 @@ public final class EntityTweaks {
             return;
         }
 
-        if (level.getGameRules().getBoolean(ModGameRules.NO_ATK_COOLDOWN)
+        if (level.getGameRules().getBoolean(ModRules.NO_ATK_COOLDOWN)
                 && target.getLastDamageSource().is(DamageTypes.PLAYER_ATTACK)) {
 
             target.invulnerableTime = 0;
