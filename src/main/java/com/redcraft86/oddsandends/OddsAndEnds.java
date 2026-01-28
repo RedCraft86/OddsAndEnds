@@ -27,12 +27,12 @@ public final class OddsAndEnds {
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
 
+        modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.CLIENT, ClientCfg.SPEC);
         modContainer.registerConfig(ModConfig.Type.COMMON, CommonCfg.SPEC);
     }
 
-    @SubscribeEvent
-    public void onCreativeMode(BuildCreativeModeTabContentsEvent event) {
+    public void addCreative(BuildCreativeModeTabContentsEvent event) {
         ModItems.ITEMS.addCreative(event);
         ModBlocks.BLOCKS.addCreative(event);
     }
