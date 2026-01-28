@@ -3,7 +3,7 @@ package com.redcraft86.oddsandends.common.blocks;
 import java.util.List;
 import net.minecraft.util.Mth;
 
-import com.redcraft86.lanternlib.api.blocks.ModBlock;
+import com.redcraft86.lanternlib.api.blocks.BaseBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -17,7 +17,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.network.chat.Component;
 import net.minecraft.ChatFormatting;
 
-public class RainbowBeaconBlock extends ModBlock {
+public class RainbowBeaconBlock extends BaseBlock {
     public static final VoxelShape SHAPE = box(0, 0, 0, 16, 8, 16);
     private static final String TOOLTIP_KEY = "tooltip.oddsandends.rainbow_beacon";
 
