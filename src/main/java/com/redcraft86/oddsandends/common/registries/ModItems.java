@@ -3,8 +3,13 @@ package com.redcraft86.oddsandends.common.registries;
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.lanternlib.api.items.ItemRegister;
 
+import net.neoforged.bus.api.IEventBus;
 import net.minecraft.world.item.CreativeModeTabs;
 
 public class ModItems {
     public static final ItemRegister ITEMS = new ItemRegister(OddsAndEnds.MOD_ID, CreativeModeTabs.FUNCTIONAL_BLOCKS);
+
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
 }
