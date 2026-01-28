@@ -2,7 +2,7 @@ package com.redcraft86.oddsandends.common.registries;
 
 import net.minecraft.world.level.GameRules;
 
-public class ModRules {
+public final class ModRules {
     public static GameRules.Key<GameRules.BooleanValue> NO_ATK_COOLDOWN;
 
     public static void registerGameRules() {

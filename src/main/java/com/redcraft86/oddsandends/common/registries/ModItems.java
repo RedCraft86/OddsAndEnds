@@ -5,6 +5,6 @@ import com.redcraft86.lanternlib.api.items.ItemRegister;
 
 import net.minecraft.world.item.CreativeModeTabs;
 
-public class ModItems {
+public final class ModItems {
     public static final ItemRegister ITEMS = new ItemRegister(OddsAndEnds.MOD_ID, CreativeModeTabs.FUNCTIONAL_BLOCKS);
 }

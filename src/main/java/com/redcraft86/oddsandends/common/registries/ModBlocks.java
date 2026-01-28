@@ -9,7 +9,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 
 import net.neoforged.neoforge.registries.DeferredBlock;
 
-public class ModBlocks {
+public final class ModBlocks {
     public static final BlockRegister BLOCKS = new BlockRegister(
             OddsAndEnds.MOD_ID, CreativeModeTabs.FUNCTIONAL_BLOCKS, ModItems.ITEMS);
 
