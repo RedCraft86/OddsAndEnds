@@ -1,4 +1,4 @@
-package com.redcraft86.oddsandends.client.features;
+package com.redcraft86.oddsandends.features;
 
 import java.util.List;
 import java.util.ArrayList;

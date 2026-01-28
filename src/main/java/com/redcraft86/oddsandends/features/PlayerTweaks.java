@@ -1,4 +1,4 @@
-package com.redcraft86.oddsandends.common.features;
+package com.redcraft86.oddsandends.features;
 
 import com.redcraft86.oddsandends.ModTags;
 import com.redcraft86.oddsandends.OddsAndEnds;

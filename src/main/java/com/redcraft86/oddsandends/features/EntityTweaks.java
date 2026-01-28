@@ -1,7 +1,7 @@
-package com.redcraft86.oddsandends.common.features;
+package com.redcraft86.oddsandends.features;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
-import com.redcraft86.oddsandends.common.registries.ModRules;
+import com.redcraft86.oddsandends.registries.ModRules;
 import com.redcraft86.oddsandends.configs.CommonCfg;
 
 import net.minecraft.world.level.Level;

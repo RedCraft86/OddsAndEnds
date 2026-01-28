@@ -1,4 +1,4 @@
-package com.redcraft86.oddsandends.common.blocks;
+package com.redcraft86.oddsandends.blocks;
 
 import java.util.List;
 import net.minecraft.util.Mth;

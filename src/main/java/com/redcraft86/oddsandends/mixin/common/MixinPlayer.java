@@ -1,6 +1,6 @@
 package com.redcraft86.oddsandends.mixin.common;
 
-import com.redcraft86.oddsandends.common.registries.ModRules;
+import com.redcraft86.oddsandends.registries.ModRules;
 import net.minecraft.world.entity.player.Player;
 
 import org.spongepowered.asm.mixin.Mixin;

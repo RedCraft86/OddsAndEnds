@@ -1,4 +1,4 @@
-package com.redcraft86.oddsandends.common.registries;
+package com.redcraft86.oddsandends.registries;
 
 import net.minecraft.world.level.GameRules;
 

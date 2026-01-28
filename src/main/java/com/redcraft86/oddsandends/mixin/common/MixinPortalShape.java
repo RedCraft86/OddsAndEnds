@@ -1,7 +1,7 @@
 package com.redcraft86.oddsandends.mixin.common;
 
 import com.redcraft86.oddsandends.configs.CommonCfg;
-import com.redcraft86.oddsandends.common.features.ShapelessPortal;
+import com.redcraft86.oddsandends.features.ShapelessPortal;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

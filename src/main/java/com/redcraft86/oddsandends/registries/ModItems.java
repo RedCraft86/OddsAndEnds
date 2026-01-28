@@ -1,4 +1,4 @@
-package com.redcraft86.oddsandends.common.registries;
+package com.redcraft86.oddsandends.registries;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.lanternlib.api.items.ItemRegister;

@@ -1,6 +1,7 @@
-package com.redcraft86.oddsandends.common.registries;
+package com.redcraft86.oddsandends.registries;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
+import com.redcraft86.oddsandends.blocks.RainbowBeaconBlock;
 import com.redcraft86.oddsandends.common.blocks.*;
 import com.redcraft86.lanternlib.api.blocks.BlockRegister;
 

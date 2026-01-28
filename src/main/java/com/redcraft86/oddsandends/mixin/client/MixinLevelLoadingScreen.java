@@ -1,6 +1,6 @@
 package com.redcraft86.oddsandends.mixin.client;
 
-import com.redcraft86.oddsandends.common.features.SpawnStructure;
+import com.redcraft86.oddsandends.features.SpawnStructure;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.LevelLoadingScreen;

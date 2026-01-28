@@ -1,10 +1,12 @@
 package com.redcraft86.oddsandends;
 
+import com.redcraft86.oddsandends.registries.ModBlocks;
+import com.redcraft86.oddsandends.registries.ModItems;
+import com.redcraft86.oddsandends.registries.ModRules;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import com.redcraft86.oddsandends.configs.*;
-import com.redcraft86.oddsandends.common.registries.*;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;

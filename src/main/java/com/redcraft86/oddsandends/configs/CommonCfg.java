@@ -3,7 +3,7 @@ package com.redcraft86.oddsandends.configs;
 import java.util.List;
 
 import com.redcraft86.lanternlib.utils.ValidationUtils;
-import com.redcraft86.oddsandends.common.features.CozyCampfire;
+import com.redcraft86.oddsandends.features.CozyCampfire;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 

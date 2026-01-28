@@ -1,7 +1,7 @@
 package com.redcraft86.oddsandends.mixin.common;
 
 import com.redcraft86.oddsandends.configs.CommonCfg;
-import com.redcraft86.oddsandends.common.features.CozyCampfire;
+import com.redcraft86.oddsandends.features.CozyCampfire;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
