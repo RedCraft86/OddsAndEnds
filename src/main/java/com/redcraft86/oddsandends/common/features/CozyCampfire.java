@@ -1,8 +1,10 @@
 package com.redcraft86.oddsandends.common.features;
 
-import java.util.*;
+import java.util.List;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 import com.redcraft86.oddsandends.OddsAndEnds;
 import com.redcraft86.oddsandends.configs.CommonCfg;
@@ -39,8 +41,8 @@ public final class CozyCampfire {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final int EFFECT_TIME = 20 * 2; // 20 ticks/second * 2 seconds
 
-    public static Map<Holder<MobEffect>, Integer> effects = new HashMap<>();
-    public static Set<Holder<MobEffect>> hostileEffects = new HashSet<>();
+    public static Object2IntOpenHashMap<Holder<MobEffect>> effects = new Object2IntOpenHashMap<>();
+    public static ObjectOpenHashSet<Holder<MobEffect>> hostileEffects = new ObjectOpenHashSet<>();
 
     @SubscribeEvent
     static void onServerStart(LevelEvent.Load event) {
@@ -80,11 +82,11 @@ public final class CozyCampfire {
                     // NOTE: toList() is needed as otherwise it directly reads and writes activeEffects causing a crash
                 }
 
-                for (Map.Entry<Holder<MobEffect>, Integer> entry : effects.entrySet()) {
-                    player.addEffect(new MobEffectInstance(
-                            entry.getKey(), EFFECT_TIME, entry.getValue(), false, false, true
-                    ));
-                }
+                effects.forEach((effect, power) ->
+                        player.addEffect(new MobEffectInstance(
+                                effect, EFFECT_TIME, power, false, false, true
+                        ))
+                );
             } else if (repelEnemies && isHostile(entity) && entity instanceof Mob mob) {
                 mob.setTarget(null);
                 mob.getNavigation().stop();
