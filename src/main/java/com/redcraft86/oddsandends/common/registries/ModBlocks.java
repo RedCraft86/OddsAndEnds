@@ -12,7 +12,6 @@ public class ModBlocks {
     public static final BlockRegister BLOCKS = new BlockRegister(
             OddsAndEnds.MOD_ID, CreativeModeTabs.FUNCTIONAL_BLOCKS, ModItems.ITEMS);
 
-
     public static final DeferredBlock<Block> RAINBOW_BEACON = BLOCKS.addBlock(
             "rainbow_beacon", RainbowBeaconBlock::new, null, null);
 }
