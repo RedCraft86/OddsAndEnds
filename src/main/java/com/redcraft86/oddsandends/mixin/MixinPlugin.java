@@ -41,13 +41,13 @@ public final class MixinPlugin implements IMixinConfigPlugin {
     @Override
     public void postApply(String s, ClassNode classNode, String s1, IMixinInfo iMixinInfo) {}
 
-    private static boolean hasMod(String modID) {
-        if (runningMods.contains(modID)) {
+    private static boolean hasMod(String modId) {
+        if (runningMods.contains(modId)) {
             return true;
         }
 
-        if (FMLLoader.getLoadingModList().getModFileById(modID) != null) {
-            runningMods.add(modID);
+        if (FMLLoader.getLoadingModList().getModFileById(modId) != null) {
+            runningMods.add(modId);
             return true;
         }
 
