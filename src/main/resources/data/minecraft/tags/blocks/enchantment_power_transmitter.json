@@ -1,0 +1,21 @@
+{
+	"replace": false,
+	"values": [
+		"#c:glass_panes",
+		"#c:glass_blocks",
+		"#minecraft:all_signs",
+		"#minecraft:banners",
+		"#minecraft:buttons",
+		"#minecraft:candles",
+		"#minecraft:coral_plants",
+		"#minecraft:crops",
+		"#minecraft:flower_pots",
+		"#minecraft:flowers",
+		"#minecraft:leaves",
+		"#minecraft:pressure_plates",
+		"#minecraft:rails",
+		"#minecraft:saplings",
+		"#minecraft:wool_carpets",
+		"minecraft:cake"
+	]
+}

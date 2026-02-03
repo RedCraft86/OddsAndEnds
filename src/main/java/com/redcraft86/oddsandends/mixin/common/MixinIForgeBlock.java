@@ -1,0 +1,24 @@
+package com.redcraft86.oddsandends.mixin.common;
+
+import com.redcraft86.oddsandends.ModTags;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.extensions.IForgeBlock;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+
+@Mixin(value = IForgeBlock.class, remap = false, priority = 1001)
+public interface MixinIForgeBlock {
+    /**
+     * @author RedCraft86
+     * @reason Unlike in NeoForge, the version of mixins Forge 1.20.1 uses
+     * is too old and does not support injectors on interface functions
+     */
+    @Overwrite
+    default boolean isPortalFrame(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.is(ModTags.Blocks.NETHER_PORTAL_FRAME);
+    }
+}

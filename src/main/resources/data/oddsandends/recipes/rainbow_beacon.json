@@ -1,0 +1,35 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"RGB",
+		"IPI",
+		"CTC"
+	],
+	"key": {
+		"R": {
+			"tag": "c:dyes/red"
+		},
+		"G": {
+			"tag": "c:dyes/green"
+		},
+		"B": {
+			"tag": "c:dyes/blue"
+		},
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"P": {
+			"item": "minecraft:redstone"
+		},
+		"C": {
+			"item": "minecraft:cobblestone"
+		},
+		"T": {
+			"item": "minecraft:glass"
+		}
+	},
+	"result": {
+		"item": "oddsandends:rainbow_beacon",
+		"count": 1
+	}
+}
