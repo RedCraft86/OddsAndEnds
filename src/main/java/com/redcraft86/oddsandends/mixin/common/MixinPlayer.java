@@ -12,8 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
 public class MixinPlayer {
-    @Unique
-    private final Player thisObj = (Player)(Object)this;
+    @Unique private final Player thisObj = (Player)(Object)this;
 
     @Inject(method = "resetAttackStrengthTicker", at = @At("HEAD"), cancellable = true)
     public void cancelStrengthTicker(CallbackInfo ci) {

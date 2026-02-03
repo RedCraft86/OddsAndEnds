@@ -17,8 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PortalShape.class)
 public class MixinPortalShape {
-    @Unique
-    private ShapelessPortal portal;
+    @Unique private ShapelessPortal portal;
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void PortalShape(LevelAccessor level, BlockPos bottomLeft, Direction.Axis axis, CallbackInfo ci) {

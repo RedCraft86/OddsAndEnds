@@ -17,7 +17,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @EventBusSubscriber(modid = OddsAndEnds.MOD_ID)
 public final class MiscTweaks {
     @SubscribeEvent
-    static void handleBonemeal(PlayerInteractEvent.RightClickBlock event) {
+    static void handleBoneMeal(PlayerInteractEvent.RightClickBlock event) {
         Level level = event.getLevel();
         if (level.isClientSide() || !CommonCfg.BONEMEAL_DIRT_TO_GRASS.get()) {
             return;
