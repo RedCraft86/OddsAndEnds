@@ -1,8 +1,8 @@
 {
 	"replace": false,
 	"values": [
-		"#c:glass_panes",
-		"#c:glass_blocks",
+		"#forge:glass",
+		"#forge:glass_panes",
 		"minecraft:beacon",
 		"minecraft:glowstone",
 		"minecraft:sea_lantern",

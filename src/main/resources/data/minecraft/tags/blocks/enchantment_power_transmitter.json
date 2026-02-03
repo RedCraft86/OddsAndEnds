@@ -1,8 +1,8 @@
 {
 	"replace": false,
 	"values": [
-		"#c:glass_panes",
-		"#c:glass_blocks",
+		"#forge:glass",
+		"#forge:glass_panes",
 		"#minecraft:all_signs",
 		"#minecraft:banners",
 		"#minecraft:buttons",

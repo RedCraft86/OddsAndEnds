@@ -7,13 +7,13 @@
 	],
 	"key": {
 		"R": {
-			"tag": "c:dyes/red"
+			"tag": "forge:dyes/red"
 		},
 		"G": {
-			"tag": "c:dyes/green"
+			"tag": "forge:dyes/green"
 		},
 		"B": {
-			"tag": "c:dyes/blue"
+			"tag": "forge:dyes/blue"
 		},
 		"I": {
 			"item": "minecraft:iron_ingot"
