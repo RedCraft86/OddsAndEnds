@@ -14,7 +14,7 @@ public class MixinTemptGoal {
     @Shadow private int calmDown;
 
     @Inject(method = "stop", at = @At("TAIL"))
-    private void onStop(CallbackInfo ci) {
+    private void one_stop(CallbackInfo ci) {
         if (CommonCfg.NO_TEMPT_COOLDOWN.get()) {
             calmDown = 0;
         }

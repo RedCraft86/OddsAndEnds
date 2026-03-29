@@ -12,18 +12,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
 public class MixinPlayer {
-    @Unique private final Player thisObj = (Player)(Object)this;
+    @Unique private final Player one_self = (Player)(Object)this;
 
     @Inject(method = "resetAttackStrengthTicker", at = @At("HEAD"), cancellable = true)
-    public void cancelStrengthTicker(CallbackInfo ci) {
-        if (thisObj.level().getGameRules().getBoolean(ModRules.NO_ATK_COOLDOWN)) {
+    public void one_cancelStrengthTicker(CallbackInfo ci) {
+        if (one_self.level().getGameRules().getBoolean(ModRules.NO_ATK_COOLDOWN)) {
             ci.cancel();
         }
     }
 
     @Inject(method = "getAttackStrengthScale", at = @At("HEAD"), cancellable = true)
-    public void getMaxAtkStrength(float adjustTicks, CallbackInfoReturnable<Float> cir) {
-        if (thisObj.level().getGameRules().getBoolean(ModRules.NO_ATK_COOLDOWN)) {
+    public void one_getMaxAtkStrength(float adjustTicks, CallbackInfoReturnable<Float> cir) {
+        if (one_self.level().getGameRules().getBoolean(ModRules.NO_ATK_COOLDOWN)) {
             cir.setReturnValue(1.0f);
         }
     }

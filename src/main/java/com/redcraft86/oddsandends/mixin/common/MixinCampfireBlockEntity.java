@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(CampfireBlockEntity.class)
 public class MixinCampfireBlockEntity {
     @Inject(method = "cookTick", at = @At("HEAD"))
-    private static void onCookTick(Level level, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, CallbackInfo ci) {
+    private static void one_cookTick(Level level, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, CallbackInfo ci) {
         Block matchType = switch (CommonCfg.CAMPFIRE_TYPE.get()) {
             case REGULAR -> Blocks.CAMPFIRE;
             case SOULFIRE -> Blocks.SOUL_CAMPFIRE;
