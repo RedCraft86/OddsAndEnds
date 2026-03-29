@@ -17,55 +17,55 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PortalShape.class)
 public class MixinPortalShape {
-    @Unique private ShapelessPortal portal;
+    @Unique private ShapelessPortal one_portal;
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void PortalShape(LevelAccessor level, BlockPos bottomLeft, Direction.Axis axis, CallbackInfo ci) {
-        if (portal == null && CommonCfg.SHAPELESS_NETHER_PORTALS.get()) {
-            portal = new ShapelessPortal(level, bottomLeft, axis);
+    private void one_init(LevelAccessor level, BlockPos bottomLeft, Direction.Axis axis, CallbackInfo ci) {
+        if (one_portal == null && CommonCfg.SHAPELESS_NETHER_PORTALS.get()) {
+            one_portal = new ShapelessPortal(level, bottomLeft, axis);
         }
     }
 
     @Inject(method = "calculateBottomLeft", at = @At(value = "HEAD"), cancellable = true)
-    private void calcBottomLeft(BlockPos blockPos, CallbackInfoReturnable<BlockPos> cir) {
-        if (portal != null) {
-            cir.setReturnValue(portal.calcBottomLeft());
+    private void one_calcBottomLeft(BlockPos blockPos, CallbackInfoReturnable<BlockPos> cir) {
+        if (one_portal != null) {
+            cir.setReturnValue(one_portal.calcBottomLeft());
         }
     }
 
     @Inject(method = "calculateHeight", at = @At(value = "HEAD"), cancellable = true)
-    private void calcHeight(CallbackInfoReturnable<Integer> cir) {
-        if (portal != null) {
-            cir.setReturnValue(portal.calcHeight());
+    private void one_calcHeight(CallbackInfoReturnable<Integer> cir) {
+        if (one_portal != null) {
+            cir.setReturnValue(one_portal.calcHeight());
         }
     }
 
     @Inject(method = "calculateWidth", at = @At(value = "HEAD"), cancellable = true)
-    private void calcWidth(CallbackInfoReturnable<Integer> cir) {
-        if (portal != null) {
-            cir.setReturnValue(portal.calcWidth());
+    private void one_calcWidth(CallbackInfoReturnable<Integer> cir) {
+        if (one_portal != null) {
+            cir.setReturnValue(one_portal.calcWidth());
         }
     }
 
     @Inject(method = "createPortalBlocks", at = @At(value = "HEAD"), cancellable = true)
-    private void createPortal(CallbackInfo ci) {
-        if (portal != null) {
-            portal.createPortal();
+    private void one_createPortal(CallbackInfo ci) {
+        if (one_portal != null) {
+            one_portal.createPortal();
             ci.cancel();
         }
     }
 
     @Inject(method = "isComplete", at = @At(value = "HEAD"), cancellable = true)
-    private void checkComplete(CallbackInfoReturnable<Boolean> cir) {
-        if (portal != null) {
-            cir.setReturnValue(portal.isComplete());
+    private void one_checkComplete(CallbackInfoReturnable<Boolean> cir) {
+        if (one_portal != null) {
+            cir.setReturnValue(one_portal.isComplete());
         }
     }
 
     @Inject(method = "isValid", at = @At(value = "HEAD"), cancellable = true)
-    private void checkValid(CallbackInfoReturnable<Boolean> cir) {
-        if (portal != null) {
-            cir.setReturnValue(portal.isValid());
+    private void one_checkValid(CallbackInfoReturnable<Boolean> cir) {
+        if (one_portal != null) {
+            cir.setReturnValue(one_portal.isValid());
         }
     }
 }

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Enchantment.class)
 public class MixinEnchantment {
     @Inject(method = "areCompatible", at = @At("HEAD"), cancellable = true)
-    private static void checkCompatibility(Holder<Enchantment> a, Holder<Enchantment> b, CallbackInfoReturnable<Boolean> cir) {
+    private static void one_checkCompatibility(Holder<Enchantment> a, Holder<Enchantment> b, CallbackInfoReturnable<Boolean> cir) {
         if (CommonCfg.MIX_ENCHANTMENTS.get()) {
             cir.setReturnValue(true);
         }

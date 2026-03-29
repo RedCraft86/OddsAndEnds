@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = IBlockExtension.class, priority = 1001)
 public interface MixinIBlockExtension {
     @Inject(method = "isPortalFrame", at = @At("HEAD"), cancellable = true)
-    default void checkFrameBlock(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    default void one_checkFrameBlock(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(state.is(ModTags.Blocks.NETHER_PORTAL_FRAME));
     }
 }

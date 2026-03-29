@@ -13,12 +13,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LevelLoadingScreen.class)
 public class MixinLevelLoadingScreen {
-    @Unique private static final String TEXT_KEY = "message.oddsandends.structure_locate";
+    @Unique private static final String ONE_TEXT_KEY = "message.oddsandends.structure_locate";
 
     @Inject(method = "getFormattedProgress", at = @At("RETURN"), cancellable = true)
-    private void getProgressText(CallbackInfoReturnable<Component> cir) {
+    private void one_getProgressText(CallbackInfoReturnable<Component> cir) {
         if (SpawnStructure.isLocating()) {
-            cir.setReturnValue(Component.translatable(TEXT_KEY, SpawnStructure.getLocateTarget()));
+            cir.setReturnValue(Component.translatable(ONE_TEXT_KEY, SpawnStructure.getLocateTarget()));
         }
     }
 }

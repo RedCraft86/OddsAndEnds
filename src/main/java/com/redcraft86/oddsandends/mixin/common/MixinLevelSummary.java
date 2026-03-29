@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LevelSummary.class)
 public class MixinLevelSummary {
     @Inject(method = "isExperimental", at = @At("RETURN"), cancellable = true)
-    private void isExperimental(CallbackInfoReturnable<Boolean> cir) {
+    private void one_isExperimental(CallbackInfoReturnable<Boolean> cir) {
         if (CommonCfg.HIDE_EXPERIMENTAL_WARNING.get()) {
             cir.setReturnValue(false);
         }
