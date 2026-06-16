@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.redcraft86.oddsandends.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "mixins": [
+  ],
+  "client": [
+  ]
+}
