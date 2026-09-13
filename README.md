@@ -1,4 +1,5 @@
-Placeholder text for the readme. Normally you would see mod related text here.
+## Odds and Ends
+A mod that adds some random features and functionality to Minecraft.
 
 ### **Modpack Usage**
 You may include this mod into your own modpacks.
