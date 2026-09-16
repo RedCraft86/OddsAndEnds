@@ -1,5 +1,12 @@
 dependencies {
     implementation project(":LanternLib")
+
+    implementation "eu.midnightdust:midnightlib:${midnightlib_version}"
+    jarJar("eu.midnightdust:midnightlib:[${midnightlib_version},)") {
+        version {
+            prefer midnightlib_version
+        }
+    }
 }
 
 group = mod_group_id
